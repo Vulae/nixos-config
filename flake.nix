@@ -7,25 +7,26 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
-	nixpkgs,
-	home-manager,
-	...
-  } @ inputs: let
-    inherit (self) outputs;
-  in {
+    nixpkgs,
+    home-manager,
+    ...
+  }: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/configuration.nix];
-      };
-    };
-    homeConfiguration = {
-      "vulae@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/home.nix];
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useUserPackages = true;
+              users.vulae = import ./users/vulae/home.nix;
+              extraSpecialArgs = { inherit inputs; };
+            };
+          }
+        ];
       };
     };
   };
