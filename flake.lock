@@ -23,19 +23,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1738172511,
-        "narHash": "sha256-v/8yB8LIy/KsySZYN6rO/f4kCEkj+fTLkzR0TaNMB+w=",
-        "path": "/nix/store/lzwp32f768jgvr5j98jphq30yac921n6-source",
-        "rev": "762a398892576efcc76fb233befbd58c2cef59e0",
-        "type": "path"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "pixpkgs": {
-      "locked": {
         "lastModified": 1738163270,
         "narHash": "sha256-B/7Y1v4y+msFFBW1JAdFjNvVthvNdJKiN6EGRPnqfno=",
         "owner": "nixos",
@@ -53,8 +40,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "pixpkgs": "pixpkgs"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
