@@ -21,9 +21,23 @@
       size = 32;
       gtk.enable = true;
     };
+    packages = with pkgs; [
+      kitty
+      gh
+      neovim
+      btop
+      hyfetch
+      vesktop
+      prismlauncher
+      jdk # FIXME: Get jdk17 to work without conflicting with jdk
+      gnomeExtensions.just-perfection
+      cargo rustc rust-analyzer
+      clang-tools openssl pkg-config
+    ];
   };
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs = {
+    firefox.enable = true;
+  };
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "24.11";
 }

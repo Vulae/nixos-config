@@ -83,9 +83,6 @@
 
   programs.zsh.enable = true;
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   nixpkgs = {
     overlays = [];
     config.allowUnfree = true;
@@ -112,19 +109,10 @@
     home-manager
     xclip
     zsh
-    kitty
     git
-    gh
-    neovim
-    btop
-    hyfetch
-    vesktop
-    prismlauncher
-    jdk jdk17
-    gnomeExtensions.just-perfection
-    cargo rustc rust-analyzer
-    clang-tools openssl pkg-config
   ];
+
+  programs.git.enable = true;
 
   programs.steam = {
     enable = true;
