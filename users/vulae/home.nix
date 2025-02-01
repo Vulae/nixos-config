@@ -23,7 +23,6 @@
     };
     packages = with pkgs; [
       kitty
-      gh
       neovim
       btop
       hyfetch

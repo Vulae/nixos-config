@@ -110,6 +110,7 @@
     xclip
     zsh
     git
+    gh
   ];
 
   programs.git.enable = true;
