@@ -106,10 +106,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    home-manager
     xclip
-    zsh
-    git
     gh
   ];
 

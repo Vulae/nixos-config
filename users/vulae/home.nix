@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./nvim/nixvim.nix
+    ./kitty.nix
   ];
 
   nixpkgs = {
@@ -29,6 +30,7 @@
 
     packages = with pkgs; [
       kitty
+      zsh
       btop
       hyfetch
       vesktop
@@ -40,8 +42,16 @@
     ];
   };
 
-  programs = {
-    firefox.enable = true;
+  programs.firefox.enable = true;
+  programs.git = {
+    userName = "Vulae";
+    userEmail = "vulae.f@gmail.com";
+  };
+  programs.zsh = {
+    # enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
   };
 
   systemd.user.startServices = "sd-switch";
