@@ -17,8 +17,9 @@
     pointerCursor = {
       name = "phinger-cursors-dark";
       package = pkgs.phinger-cursors;
-      size = 32;
+      size = 24;
       gtk.enable = true;
+      x11.enable = true;
     };
 
     packages = with pkgs; [
@@ -33,7 +34,6 @@
   };
 
   programs.firefox.enable = true;
-  programs.btop.enable = true;
   programs.git = {
     enable = true;
     userName = "Vulae";
@@ -48,6 +48,17 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "man" "rust" "gh" ];
+    };
+  };
+  programs.btop = {
+    # FIXME: Doesn't show GPU
+    enable = true;
+    settings = {
+      color_theme = "kyli0x";
+      theme_background = false;
+      vim_keys = true;
+      update_ms = 500;
+      proc_per_core = true;
     };
   };
 

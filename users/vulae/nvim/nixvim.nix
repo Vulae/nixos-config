@@ -353,40 +353,10 @@
     # TODO: Figure out where to move this
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapre
     extraConfigLuaPre = ''
+      math.randomseed(os.time())
+
       if vim.g.have_nerd_font then
         require('nvim-web-devicons').setup {}
-      end
-    '';
-
-    extraConfigLua = ''
-      local function alpha_flag_trans(width, height)
-        local char = "█"
-        local char_width = 3
-
-        local val = {}
-        for j = 1, height do
-          val[j] = string.rep(char, width)
-        end
-
-        vim.api.nvim_set_hl(0, "FlagTrans0", { fg = "#5bcefa" })
-        vim.api.nvim_set_hl(0, "FlagTrans1", { fg = "#f5a9b8" })
-        vim.api.nvim_set_hl(0, "FlagTrans2", { fg = "#ffffff" })
-
-        local hl = {}
-        for j = 1, height do
-          local indices = { 0, 1, 2, 1, 0 }
-          local col_index = indices[math.floor((j - 1) / height * #indices) + 1]
-          hl[j] = { { "FlagTrans" .. col_index, 0, width * char_width } }
-        end
-
-        return {
-          type = "text",
-          val = val,
-          opts = {
-            hl = hl,
-            position = "center",
-          },
-        }
       end
     '';
 

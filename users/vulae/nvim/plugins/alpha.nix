@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   programs.nixvim = {
     plugins.alpha = {
       enable = true;
@@ -55,40 +55,51 @@
               type = "padding";
               val = 1;
             }
-            # TODO: Fix all buttons being not aligned.
             {
               type = "button";
               val = "  New file";
               on_press.__raw = "function() vim.cmd[[ene]] end";
-              opts = { position = "center"; shortcut = "n"; };
+              opts = { shortcut = "e"; position = "center"; cursor = 3; width = 40; align_shortcut = "right"; hl_shortcut = "Keyword"; };
             }
             {
               type = "button";
               val = "󰈞  Find files";
-              opts = { position = "center"; shortcut = "<leader> s f"; };
+              opts = { shortcut = "<leader> s f"; position = "center"; cursor = 3; width = 40; align_shortcut = "right"; hl_shortcut = "Keyword"; };
             }
             {
               type = "button";
               val = "󰊄  Live grep";
-              opts = { position = "center"; shortcut = "<leader> s g"; };
+              opts = { shortcut = "<leader> s g"; position = "center"; cursor = 3; width = 40; align_shortcut = "right"; hl_shortcut = "Keyword"; };
             }
             {
               type = "button";
               val = "  Search TODOs";
-              opts = { position = "center"; shortcut = "<leader> s t"; };
+              opts = { shortcut = "<leader> s t"; position = "center"; cursor = 3; width = 40; align_shortcut = "right"; hl_shortcut = "Keyword"; };
             }
             {
               type = "button";
               val = "󰅚  Quit Neovim";
               on_press.__raw = "function() vim.cmd[[qa]] end";
-              opts = { position = "center"; shortcut = "q"; };
+              opts = { shortcut = "q"; position = "center"; cursor = 3; width = 40; align_shortcut = "right"; hl_shortcut = "Keyword"; };
             }
           ];
         }
         { type = "padding"; val = 2; }
         {
           type = "text";
-          val = "meow";
+          val.__raw = ''
+            (function()
+              local list = {${toString (
+                let
+                  content = builtins.readFile ../../kaomoji.txt;
+                  lines = builtins.filter (x: !(builtins.typeOf x != "string" || x == "")) (builtins.split "\n" content);
+                  filtered = builtins.filter (line: !(lib.hasPrefix "###" line)) lines;
+                  escaped = map (line: "\"${builtins.replaceStrings ["\""] ["\\\""] line}\"") filtered;
+                in builtins.concatStringsSep "," escaped
+              )}}
+              return list[math.random(#list)] or "Something went very, very wrong."
+            end)()
+          '';
           opts = { position = "center"; hl = "Keyword"; };
         }
       ];
