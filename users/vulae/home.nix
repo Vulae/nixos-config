@@ -10,13 +10,6 @@
     ./kitty.nix
   ];
 
-  nixpkgs = {
-    overlays = [];
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   home = {
     username = "vulae";
     homeDirectory = "/home/vulae";
@@ -29,9 +22,6 @@
     };
 
     packages = with pkgs; [
-      kitty
-      zsh
-      btop
       hyfetch
       vesktop
       prismlauncher
@@ -43,15 +33,22 @@
   };
 
   programs.firefox.enable = true;
+  programs.btop.enable = true;
   programs.git = {
+    enable = true;
     userName = "Vulae";
     userEmail = "vulae.f@gmail.com";
   };
+  programs.gh.enable = true;
   programs.zsh = {
-    # enable = true;
+    enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "man" "rust" "gh" ];
+    };
   };
 
   systemd.user.startServices = "sd-switch";

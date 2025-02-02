@@ -81,13 +81,6 @@
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
-
-  nixpkgs = {
-    overlays = [];
-    config.allowUnfree = true;
-  };
-
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
@@ -101,17 +94,18 @@
     gc = {
       automatic = true;
       dates = "daily";
-      options = "--delete-older-than 14d";
+      options = "--delete-older-than 7d";
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
-    xclip
-    gh
+    vim
   ];
 
   programs.git.enable = true;
-
+  programs.zsh.enable = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

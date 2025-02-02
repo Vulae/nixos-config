@@ -30,6 +30,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = {
+              useGlobalPkgs = true;
               useUserPackages = true;
               users.vulae = import ./users/vulae/home.nix;
               extraSpecialArgs = { inherit inputs; };
