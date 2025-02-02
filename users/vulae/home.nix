@@ -59,6 +59,7 @@
       vim_keys = true;
       update_ms = 500;
       proc_per_core = true;
+      proc_sorting = "memory";
     };
   };
 
