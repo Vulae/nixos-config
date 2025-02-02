@@ -1,14 +1,6 @@
 { pkgs, inputs, ... }: {
   imports = [
-    # NOTE: The first thing you will want to do is uncommented on of the three imports below
-    # depending on which module you chose to use to install Nixvim.
-    #
-    # Uncomment if you are using the home-manager module
-    #inputs.nixvim.homeManagerModules.nixvim
-    # Uncomment if you are using the nixos module
-    #inputs.nixvim.nixosModules.nixvim
-    # Uncomment if you are using the nix-darwin module
-    #inputs.nixvim.nixDarwinModules.nixvim
+    inputs.nixvim.homeManagerModules.nixvim
 
     # Plugins
     ./plugins/gitsigns.nix
@@ -19,6 +11,7 @@
     ./plugins/nvim-cmp.nix
     ./plugins/mini.nix
     ./plugins/treesitter.nix
+    ./plugins/alpha.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
@@ -139,6 +132,12 @@
       # See `:help mapleader`
       mapleader = " ";
       maplocalleader = " ";
+
+      noexpandtab = true;
+      tabstop = 2;
+      shiftwidth = 4;
+      softtabstop = -1;
+      smarttab = true;
 
       # Set to true if you have a Nerd Font installed and selected in the terminal
       have_nerd_font = false;
@@ -360,6 +359,38 @@
     extraConfigLuaPre = ''
       if vim.g.have_nerd_font then
         require('nvim-web-devicons').setup {}
+      end
+    '';
+
+    extraConfigLua = ''
+      local function alpha_flag_trans(width, height)
+        local char = "█"
+        local char_width = 3
+
+        local val = {}
+        for j = 1, height do
+          val[j] = string.rep(char, width)
+        end
+
+        vim.api.nvim_set_hl(0, "FlagTrans0", { fg = "#5bcefa" })
+        vim.api.nvim_set_hl(0, "FlagTrans1", { fg = "#f5a9b8" })
+        vim.api.nvim_set_hl(0, "FlagTrans2", { fg = "#ffffff" })
+
+        local hl = {}
+        for j = 1, height do
+          local indices = { 0, 1, 2, 1, 0 }
+          local col_index = indices[math.floor((j - 1) / height * #indices) + 1]
+          hl[j] = { { "FlagTrans" .. col_index, 0, width * char_width } }
+        end
+
+        return {
+          type = "text",
+          val = val,
+          opts = {
+            hl = hl,
+            position = "center",
+          },
+        }
       end
     '';
 

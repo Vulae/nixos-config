@@ -29,7 +29,6 @@
 
     packages = with pkgs; [
       kitty
-      neovim
       btop
       hyfetch
       vesktop
