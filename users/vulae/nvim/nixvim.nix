@@ -12,6 +12,7 @@
     ./plugins/mini.nix
     ./plugins/treesitter.nix
     ./plugins/alpha.nix
+    ./plugins/todo-comments.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
@@ -132,12 +133,6 @@
       # See `:help mapleader`
       mapleader = " ";
       maplocalleader = " ";
-
-      noexpandtab = true;
-      tabstop = 2;
-      shiftwidth = 4;
-      softtabstop = -1;
-      smarttab = true;
 
       # Set to true if you have a Nerd Font installed and selected in the terminal
       have_nerd_font = false;
