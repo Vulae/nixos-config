@@ -7,7 +7,6 @@
 }: {
   imports = [
     ./nvim/nixvim.nix
-    ./kitty.nix
   ];
 
   home = {
@@ -27,7 +26,6 @@
     };
 
     packages = with pkgs; [
-      hyfetch
       vesktop
       (prismlauncher.override {
         jdks = [
@@ -43,6 +41,7 @@
   };
 
   programs.firefox.enable = true;
+
   programs.git = {
     enable = true;
     userName = "Vulae";
@@ -54,7 +53,9 @@
       };
     };
   };
+
   programs.gh.enable = true;
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -65,6 +66,36 @@
       plugins = [ "git" "man" "rust" "gh" ];
     };
   };
+
+  programs.kitty = {
+    enable = true;
+    shellIntegration.enableZshIntegration = true;
+    themeFile = "Catppuccin-Mocha";
+    settings = {
+      notify_on_cmd_finish = "never";
+      focus_follows_mouse = true;
+      hide_window_decorations = true;
+
+      background_opacity = "0.85";
+      background_blur = 8;
+      
+      tab_bar_margin_width = 8;
+      tab_bar_style = "powerline";
+      tab_powerline_style = "round";
+      tab_bar_align = "left";
+      tab_bar_min_tabs = 2;
+      tab_bar_edge = "bottom";
+      tab_activity_symbol = "*";
+      tab_title_template = "{index}{activity_symbol}: {title}";
+      active_tab_foreground = "#000";
+      active_tab_background = "#DDD";
+      active_tab_font_style = "bold-italic";
+      inactive_tab_foreground = "#FFF";
+      inactive_tab_background = "#333";
+      inactive_tab_font_style = "normal";
+    };
+  };
+
   programs.btop = {
     # FIXME: Doesn't show GPU
     enable = true;
@@ -75,6 +106,20 @@
       update_ms = 500;
       proc_per_core = true;
       proc_sorting = "memory";
+    };
+  };
+
+  home.file.".config/neofetch/config.conf".source = ./neofetch.conf;
+  programs.hyfetch = {
+    enable = true;
+    settings = {
+      preset = "transgender";
+      mode = "rgb";
+      lightness = 0.65;
+      color_align = {
+          mode = "horizontal";
+      };
+      backend = "neofetch";
     };
   };
 
