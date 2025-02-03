@@ -349,6 +349,7 @@
     extraPlugins = with pkgs.vimPlugins; [
       # Useful for getting pretty icons, but requires a Nerd Font.
       nvim-web-devicons # TODO: Figure out how to configure using this with telescope
+      luasnip
     ];
 
     # TODO: Figure out where to move this
