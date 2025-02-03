@@ -60,6 +60,9 @@
       enable = true;
       plugins = [ "git" "man" "rust" "gh" ];
     };
+    sessionVariables = {
+      MANPAGER = "nvim +Man!";
+    };
   };
   programs.btop = {
     # FIXME: Doesn't show GPU
