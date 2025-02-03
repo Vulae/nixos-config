@@ -4,9 +4,9 @@
     #    See the README about individual language/framework/plugin snippets:
     #    https://github.com/rafamadriz/friendly-snippets
     # https://nix-community.github.io/nixvim/plugins/friendly-snippets.html
-    # plugins.friendly-snippets = {
-    #   enable = true;
-    # };
+    plugins.friendly-snippets = {
+      enable = true;
+    };
 
     # Autocompletion
     # See `:help cmp`
@@ -64,15 +64,15 @@
           # <c-h> is similar, except moving you backwards.
           "<C-l>" = ''
             cmp.mapping(function()
-              if luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
+              if require('luasnip').expand_or_locally_jumpable() then
+                require('luasnip').expand_or_jump()
               end
             end, { 'i', 's' })
           '';
           "<C-h>" = ''
             cmp.mapping(function()
-              if luasnip.locally_jumpable(-1) then
-                luasnip.jump(-1)
+              if require('luasnip').locally_jumpable(-1) then
+                require('luasnip').jump(-1)
               end
             end, { 'i', 's' })
           '';
