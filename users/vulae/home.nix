@@ -26,6 +26,7 @@
     };
 
     packages = with pkgs; [
+      ffmpeg
       vesktop
       (prismlauncher.override {
         jdks = [
@@ -40,7 +41,12 @@
     ];
   };
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    profiles.vulae = {
+      extraConfig = builtins.readFile ./firefox.js;
+    };
+  };
 
   programs.git = {
     enable = true;
@@ -64,6 +70,9 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "man" "rust" "gh" ];
+    };
+    shellAliases = {
+      neofetch = "hyfetch";
     };
   };
 
