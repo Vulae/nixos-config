@@ -25,8 +25,15 @@
     packages = with pkgs; [
       hyfetch
       vesktop
-      prismlauncher
-      jdk # FIXME: Get jdk17 to work without conflicting with jdk
+      (prismlauncher.override {
+        jdks = [
+          jdk17
+          jdk21
+          zulu17
+          zulu21
+          graalvm-ce
+        ];
+      })
       gnomeExtensions.just-perfection
     ];
   };
