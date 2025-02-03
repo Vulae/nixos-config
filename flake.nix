@@ -32,6 +32,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              backupFileExtension = "hm-backup";
               users.vulae = import ./users/vulae/home.nix;
               extraSpecialArgs = { inherit inputs; };
             };
