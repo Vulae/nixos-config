@@ -14,6 +14,10 @@
     username = "vulae";
     homeDirectory = "/home/vulae";
 
+    sessionVariables = {
+      MANPAGER = "nvim +Man!";
+    };
+
     pointerCursor = {
       name = "phinger-cursors-dark";
       package = pkgs.phinger-cursors;
@@ -59,9 +63,6 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "man" "rust" "gh" ];
-    };
-    sessionVariables = {
-      MANPAGER = "nvim +Man!";
     };
   };
   programs.btop = {
