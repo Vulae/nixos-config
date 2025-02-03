@@ -28,8 +28,6 @@
       prismlauncher
       jdk # FIXME: Get jdk17 to work without conflicting with jdk
       gnomeExtensions.just-perfection
-      cargo rustc rust-analyzer
-      clang-tools openssl pkg-config
     ];
   };
 
@@ -38,6 +36,12 @@
     enable = true;
     userName = "Vulae";
     userEmail = "vulae.f@gmail.com";
+    extraConfig = {
+      core = {
+        editor = "nvim";
+        pager = "nvim +Man!";
+      };
+    };
   };
   programs.gh.enable = true;
   programs.zsh = {

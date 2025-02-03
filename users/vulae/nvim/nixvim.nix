@@ -14,6 +14,7 @@
     ./plugins/alpha.nix
     ./plugins/todo-comments.nix
     ./plugins/rustaceanvim.nix
+    ./plugins/markview.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
