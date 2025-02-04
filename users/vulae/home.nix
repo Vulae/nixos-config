@@ -43,7 +43,7 @@
 
   programs.firefox = {
     enable = true;
-    profiles.vulae = {
+    profiles.default = {
       extraConfig = builtins.readFile ./firefox.js;
     };
   };
