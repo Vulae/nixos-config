@@ -18,4 +18,5 @@ user_pref("browser.newtabpage.pinned", "[{\"url\":\"http://youtube.com\",\"label
 user_pref("network.dns.preferIPv6", true);
 
 user_pref("media.ffmpeg.enabled", true);
+user_pref("media.ffmpeg.vaapi.enabled", true);
 
