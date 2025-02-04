@@ -106,8 +106,20 @@
           };
         };
       };
+
       settings = {
         extensions.__raw = "{ ['ui-select'] = { require('telescope.themes').get_dropdown() } }";
+        pickers = {
+          # :Telescope colorscheme
+          color_scheme.enable_preview = true;
+          # Don't hide and files as default
+          find_files = {
+            hidden = true;
+            no_ignore = true;
+          };
+        };
+        # Hide some files
+        defaults.file_ignore_patterns = [ ".git/" ".env" "node_modules/" "target/" ];
       };
     };
 

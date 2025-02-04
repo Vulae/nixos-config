@@ -118,13 +118,13 @@
     #
     # If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     colorschemes = {
-      # https://nix-community.github.io/nixvim/colorschemes/tokyonight/index.html
-      tokyonight = {
+      # https://nix-community.github.io/nixvim/colorschemes/rose-pine/index.html
+      rose-pine = {
         enable = true;
         settings = {
-          # Like many other themes, this one has different styles, and you could load
-          # any other, such as 'storm', 'moon', or 'day'.
-          style = "night";
+          variant = "moon";
+          dim_inactive_windows = true;
+          enable.terminal = true;
         };
       };
     };

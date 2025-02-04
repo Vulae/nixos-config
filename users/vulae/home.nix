@@ -42,6 +42,9 @@
     ];
   };
 
+  # TODO: Figure out how to enable compose key through this config.
+  home.file.".XCompose".source = ./.XCompose;
+
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -99,6 +102,8 @@
       };
     };
   };
+  # Firefox automatically overrides this file, so we have to just ignore the collision.
+  home.file.".mozilla/firefox/default/search.json.mozlz4".force = lib.mkForce true;
 
   programs.git = {
     enable = true;
@@ -139,7 +144,7 @@
 
       background_opacity = "0.85";
       background_blur = 8;
-      
+
       tab_bar_margin_width = 8;
       tab_bar_style = "powerline";
       tab_powerline_style = "round";
