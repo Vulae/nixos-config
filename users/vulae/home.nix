@@ -27,6 +27,7 @@
 
     packages = with pkgs; [
       ffmpeg
+      wget
       vesktop
       (prismlauncher.override {
         jdks = [
@@ -45,6 +46,57 @@
     enable = true;
     profiles.default = {
       extraConfig = builtins.readFile ./firefox.js;
+      # TODO: Search engine icons
+      search.engines = {
+        "Google".metaData.hideOneOffButton = true;
+        "DuckDuckGo".metaData.hideOneOffButton = true;
+        "Bing".metaData.hideOneOffButton = true;
+        "Wikipedia (en)".metaData.alias = "!w";
+        "GitHub" = {
+          definedAliases = [ "!gh" ];
+          urls = [{
+            template = "https://github.com/search?q={searchTerms}&ref=opensearch";
+          }];
+        };
+        "YouTube" = {
+          definedAliases = [ "!yt" ];
+          urls = [{
+            template = "https://www.youtube.com/results?search_query={searchTerms}&page={startPage}&utm_source=opensearch";
+          }];
+        };
+        # NOTE: Non-official
+        "Twitch" = {
+          definedAliases = [ "!tw" ];
+          urls = [{
+            template = "https://www.twitch.tv/search?term={searchTerms}";
+          }];
+        };
+        # NOTE: Non-official
+        "Reddit" = {
+          definedAliases = [ "!r" ];
+          urls = [{
+            template = "https://www.reddit.com/search/?q={searchTerms}";
+          }];
+        };
+        "Docs.rs" = {
+          definedAliases = [ "!rd" ];
+          urls = [{
+            template = "https://docs.rs/releases/search?query={searchTerms}";
+          }];
+        };
+        "NixOS packages" = {
+          definedAliases = [ "!n" ];
+          urls = [{
+            template = "https://search.nixos.org/packages?query={searchTerms}";
+          }];
+        };
+        "Home Manager - Options Search" = {
+          definedAliases = [ "!nhm" ];
+          urls = [{
+            template = "https://home-manager-options.extranix.com/?query={searchTerms}";
+          }];
+        };
+      };
     };
   };
 
