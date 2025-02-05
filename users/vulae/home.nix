@@ -26,6 +26,7 @@
     };
 
     packages = with pkgs; [
+      pciutils # NOTE: Needed for neofetch to detect GPU
       ffmpeg
       wget
       vesktop
