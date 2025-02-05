@@ -15,6 +15,7 @@
     ./plugins/todo-comments.nix
     ./plugins/rustaceanvim.nix
     ./plugins/markview.nix
+    ./plugins/diffview.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
@@ -118,15 +119,31 @@
     #
     # If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     colorschemes = {
-      # https://nix-community.github.io/nixvim/colorschemes/rose-pine/index.html
-      rose-pine = {
+      # # https://nix-community.github.io/nixvim/colorschemes/rose-pine/index.html
+      # rose-pine = {
+      #   enable = true;
+      #   settings = {
+      #     variant = "moon";
+      #     dim_inactive_windows = true;
+      #     enable.terminal = true;
+      #   };
+      # };
+      # https://nix-community.github.io/nixvim/colorschemes/catppuccin/index.html
+      catppuccin = {
         enable = true;
         settings = {
-          variant = "moon";
-          dim_inactive_windows = true;
-          enable.terminal = true;
+          flavour = "frappe";
+          integrations = {
+            cmp = true;
+            gitsigns = true;
+            treesitter = true;
+            mini.enable = true;
+          };
+          show_end_of_buffer = true;
+          transparent_background = true;
         };
       };
+      # TODO: Habamax colorscheme
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=globals#globals
@@ -137,7 +154,7 @@
       maplocalleader = " ";
 
       # Set to true if you have a Nerd Font installed and selected in the terminal
-      have_nerd_font = false;
+      have_nerd_font = true;
     };
 
     #  See `:help 'clipboard'`
