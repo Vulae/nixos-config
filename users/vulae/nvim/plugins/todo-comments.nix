@@ -15,6 +15,13 @@
           TEMP = { icon = "🕰"; color = "info"; alt = [ "TEMPORARY" ]; };
         };
       };
+      keymaps.todoTelescope = {
+        key = "<leader>st";
+        mode = "n";
+        options = {
+          desc = "[S]earch [T]odos";
+        };
+      };
     };
   };
 }
