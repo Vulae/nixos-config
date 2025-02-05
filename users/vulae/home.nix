@@ -199,6 +199,8 @@
 
   programs.obs-studio.enable = true;
 
+  home.file.".config/vesktop/themes/vulae.theme.css".source = ./vulae.theme.css;
+
   systemd.user.startServices = "sd-switch";
 
   home.stateVersion = "24.11";
