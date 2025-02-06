@@ -1,6 +1,4 @@
-# Add next line uncommented to ~/.XCompose to import this file.
-# include "%H/.config/.XCompose"
-# And probably after any default imports to override system defaults.
+# ~/.XCompose
 
 # While editing this file for some weird reason using `ibus restart` doesn't work properly.
 # So removing the thing that imports this, then restarting, then adding it back, then restarting it again works.

@@ -94,10 +94,23 @@
             template = "https://search.nixos.org/packages?query={searchTerms}";
           }];
         };
-        "Home Manager - Options Search" = {
+        "NixOS Home Manager Options" = {
           definedAliases = [ "!nhm" ];
           urls = [{
             template = "https://home-manager-options.extranix.com/?query={searchTerms}";
+          }];
+        };
+        "My Anime List" = {
+          definedAliases = [ "!mal" ];
+          urls = [{
+            template = "https://myanimelist.net/anime.php?q={searchTerms}";
+          }];
+        };
+        # NOTE: Non-official
+        "Crunchyroll" = {
+          definedAliases = [ "!cr" ];
+          urls = [{
+            template = "https://www.crunchyroll.com/search?q={searchTerms}";
           }];
         };
       };
