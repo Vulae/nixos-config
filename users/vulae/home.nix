@@ -17,14 +17,6 @@
       MANPAGER = "nvim +Man!";
     };
 
-    pointerCursor = {
-      name = "phinger-cursors-dark";
-      package = pkgs.phinger-cursors;
-      size = 24;
-      gtk.enable = true;
-      x11.enable = true;
-    };
-
     packages = with pkgs; [
       pciutils # NOTE: Needed for neofetch to detect GPU
       ffmpeg
@@ -41,7 +33,42 @@
       })
       gnomeExtensions.just-perfection
     ];
+
+    pointerCursor = {
+      gtk.enable = true;
+      name = "Quintom_Ink";
+      package = pkgs.quintom-cursor-theme;
+      size = 28;
+    };
   };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "candy-icons";
+      package = pkgs.candy-icons;
+    };
+    theme = {
+      name = "Sweet-Dark";
+      package = pkgs.sweet;
+    };
+    cursorTheme = {
+      name = "Quintom_Ink";
+      package = pkgs.quintom-cursor-theme;
+      size = 28;
+    };
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+  home.sessionVariables.GTK_THEME = "Sweet-Dark";
 
   # TODO: Figure out how to enable compose key through this config.
   home.file.".XCompose".source = ./.XCompose;
