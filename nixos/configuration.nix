@@ -102,6 +102,8 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    niri
+    wl-clipboard wayland-utils xwayland-satellite
   ];
 
   # Disable some default gnome apps
@@ -125,6 +127,15 @@
     gnome-maps gnome-music gnome-photos # gnome-screenshot gnome-system-monitor
     gnome-weather gnome-disk-utility gnome-connections gnome-tour
   ];
+
+  xdg.portal = {
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    config = {
+      niri.default = "gnome";
+    };
+  };
+
+  services.displayManager.sessionPackages = [ pkgs.niri ];
 
   programs.git.enable = true;
   programs.zsh.enable = true;

@@ -32,6 +32,8 @@
         ];
       })
       gnomeExtensions.just-perfection
+      protonup-qt
+      protontricks
     ];
 
     pointerCursor = {
@@ -239,7 +241,11 @@
 
   programs.obs-studio.enable = true;
 
-  home.file.".config/vesktop/themes/vulae.theme.css".source = ./vulae.theme.css;
+  home.file.".config/vesktop/themes/vulae.theme.css".source = ./discord.theme.css;
+
+  programs.fuzzel.enable = true;
+
+  home.file.".config/niri/config.kdl".source = ./niri.kdl;
 
   systemd.user.startServices = "sd-switch";
 

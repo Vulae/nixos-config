@@ -18,6 +18,7 @@ user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.pinned", "[{\"url\":\"http://youtube.com\",\"label\":\"YouTube\"},{\"url\":\"http://twitch.tv\",\"label\":\"Twitch\"},{\"url\":\"http://github.com\",\"label\":\"GitHub\"},{\"url\":\"http://reddit.com\",\"label\":\"Reddit\"},{\"url\":\"http://mail.google.com\",\"label\":\"Gmail\"},{\"url\":\"http://google.com\",\"label\":\"Google\"},{\"url\":\"http://wikipedia.org\",\"label\":\"Wikipedia\"},{\"url\":\"https://www.nytimes.com/games/strands\",\"label\":\"Strands\"}]");
 
 user_pref("network.dns.preferIPv6", true);
+user_pref("dom.security.https_only_mode", true);
 
 user_pref("media.ffmpeg.enabled", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
