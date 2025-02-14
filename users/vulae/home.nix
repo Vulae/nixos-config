@@ -34,6 +34,7 @@
       gnomeExtensions.just-perfection
       protonup-qt
       protontricks
+      gimp
     ];
 
     pointerCursor = {
