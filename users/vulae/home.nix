@@ -21,6 +21,7 @@
       pciutils # NOTE: Needed for neofetch to detect GPU
       ffmpeg
       wget
+      bc
       vesktop
       (prismlauncher.override {
         jdks = [
@@ -35,6 +36,7 @@
       protonup-qt
       protontricks
       gimp
+      imagemagick
     ];
 
     pointerCursor = {
@@ -44,6 +46,8 @@
       size = 28;
     };
   };
+
+  home.file.".config/autostart/wallpaper.sh".source = ./wallpaper.sh;
 
   gtk = {
     enable = true;
