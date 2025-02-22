@@ -24,11 +24,15 @@
     };
 
     packages = with pkgs; [
-      pciutils # NOTE: Needed for neofetch to detect GPU
       ffmpeg
+
+      pciutils # NOTE: Needed for neofetch to detect GPU
       wget
-      bc
-      vesktop
+      bc # Command line calculator
+
+      vesktop # Discord 
+
+      # Minecraft
       (prismlauncher.override {
         jdks = [
           jdk17
@@ -38,11 +42,18 @@
           graalvm-ce
         ];
       })
-      gnomeExtensions.just-perfection
+
+      # Steam Proton
       protonup-qt
       protontricks
+
+      # Image editor / utilities
       gimp
       imagemagick
+
+      # Gnome customization
+      gnomeExtensions.hide-top-bar
+      gnomeExtensions.blur-my-shell
     ];
 
     pointerCursor = {
@@ -52,6 +63,39 @@
       size = 28;
     };
   };
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = with pkgs.gnomeExtensions; [
+          hide-top-bar.extensionUuid
+          blur-my-shell.extensionUuid
+        ];
+      };
+      "org/gnome/desktop/interface" = {
+        clock-format = "12h";
+      };
+      "org/gnome/desktop/peripherals/mouse" = {
+        accel-profile = "flat";
+        speed = "0.4";
+      };
+      "org/gnome/desktop/input-sources" = {
+        xkb-options = ["compose:ralt"];
+      };
+      # FIXME: When going into overview, fullscreen applications get resized with a 'fake' top bar, which is never visible.
+      "org/gnome/shell/extensions/hidetopbar" = {
+        mouse-sensitivity = false;
+        animation-time-overview = 0;
+        animation-time-autohide = 0;
+        enable-intellihide = false;
+      };
+    };
+  };
+
+  home.file.".XCompose".source = ./.XCompose;
 
   home.file.".config/autostart/wallpaper.sh".source = ./wallpaper.sh;
 
@@ -82,9 +126,6 @@
     };
   };
   home.sessionVariables.GTK_THEME = "Sweet-Dark";
-
-  # TODO: Figure out how to enable compose key through this config.
-  home.file.".XCompose".source = ./.XCompose;
 
   programs.firefox = {
     enable = true;

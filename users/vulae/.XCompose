@@ -1,8 +1,5 @@
 # ~/.XCompose
 
-# While editing this file for some weird reason using `ibus restart` doesn't work properly.
-# So removing the thing that imports this, then restarting, then adding it back, then restarting it again works.
-
 # Use `man XCompose` for docs
 # Use `ibus restart` to reload XCompose
 
