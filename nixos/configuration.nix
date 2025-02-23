@@ -96,6 +96,11 @@
       dates = "daily";
       options = "--delete-older-than 7d";
     };
+    # Helps with package cache, or something. IDK I just copied this from somewhere.
+    extraOptions = ''
+      keep-outputs = true
+      keep-derivations = true
+    '';
   };
 
   nixpkgs.config.allowUnfree = true;

@@ -9,12 +9,6 @@
     ./nvim/nixvim.nix
   ];
 
-  nix.settings = {
-    # Helps with package cache, or something. IDK I just copied this from somewhere.
-    keep-outputs = true;
-    keep-derivations = true;
-  };
-
   home = {
     username = "vulae";
     homeDirectory = "/home/vulae";
