@@ -310,7 +310,9 @@
           "strings" = "on";
       };
       "rust-analyzer.cargo.sysroot" = "discover";
-      "rust-analyzer.checkOnSave.command" = "clippy";
+      "rust-analyzer.check.command" = "clippy";
+      "rust-analyzer.checkOnSave" = true;
+      "terminal.integrated.defaultProfile.linux" = "zsh";
     };
     extensions = with pkgs.vscode-extensions; [
       rust-lang.rust-analyzer
