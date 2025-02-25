@@ -32,6 +32,9 @@
 <Multi_key> <m> <o> <n> <e> <y> : "💲"
 <Multi_key> <c> <a> <s> <h>     : "💵"
 <Multi_key> <f> <i> <r> <e>     : "🔥"
+<Multi_key> <w> <a> <t> <e> <r> : "💧"
+<Multi_key> <r> <o> <c> <k>     : "🪨"
+<Multi_key> <b> <d> <a> <y>     : "🎉"
 <Multi_key> <greater> <less>    : "💢"
 <Multi_key> <n> <e> <r> <d>     : "🤓"
 <Multi_key> <o> <7>             : "🫡"
@@ -48,9 +51,7 @@
 <Multi_key> <s> <k> <u> <l> <l> : "💀"
 <Multi_key> <c> <o> <v> <e> <r> : "🤭"
 <Multi_key> <w> <e> <a> <r> <y> : "😩"
-<Multi_key> <w> <a> <t> <e> <r> : "💧"
-<Multi_key> <r> <o> <c> <k>     : "🪨"
-<Multi_key> <b> <d> <a> <y>     : "🎉"
+<Multi_key> <y> <u> <m>         : "😋"
 
 # https://www.kaomoji.co/pages/emoji
 <Multi_key> <F> <0> <0> <0> : "\"(* ^ ω ^)"
