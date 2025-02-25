@@ -293,6 +293,30 @@
 
   home.file.".config/niri/config.kdl".source = ./niri.kdl;
 
+  programs.vscode = {
+    enable = true;
+    userSettings = {
+      "window.titleBarStyle" = "custom";
+      "editor.autoClosingBrackets" = "always";
+      "editor.inlayHints.enabled" = "offUnlessPressed";
+      "security.workspace.trust.enabled" = false;
+      "explorer.confirmDragAndDrop" = false;
+      "explorer.confirmDelete" = false;
+      "editor.formatOnSave" = true;
+      "editor.useTabStops" = false;
+      "editor.quickSuggestions" = {
+          "other" = "on";
+          "comments" = "off";
+          "strings" = "on";
+      };
+      "rust-analyzer.cargo.sysroot" = "discover";
+      "rust-analyzer.checkOnSave.command" = "clippy";
+    };
+    extensions = with pkgs.vscode-extensions; [
+      rust-lang.rust-analyzer
+    ];
+  };
+
   systemd.user.startServices = "sd-switch";
 
   home.stateVersion = "24.11";
