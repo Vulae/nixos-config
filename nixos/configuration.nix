@@ -151,6 +151,7 @@
     localNetworkGameTransfers.openFirewall = true;
   };
   hardware.steam-hardware.enable = true;
+  programs.gamemode.enable = true;
 
   security.pam.loginLimits = [
     # Disable coredumps
