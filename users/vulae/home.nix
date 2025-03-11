@@ -297,11 +297,12 @@
     enable = true;
     userSettings = {
       "window.titleBarStyle" = "custom";
-      "editor.autoClosingBrackets" = "always";
-      "editor.inlayHints.enabled" = "offUnlessPressed";
+      "terminal.integrated.defaultProfile.linux" = "zsh";
       "security.workspace.trust.enabled" = false;
       "explorer.confirmDragAndDrop" = false;
       "explorer.confirmDelete" = false;
+      "editor.autoClosingBrackets" = "always";
+      "editor.inlayHints.enabled" = "offUnlessPressed";
       "editor.formatOnSave" = true;
       "editor.useTabStops" = false;
       "editor.quickSuggestions" = {
@@ -312,10 +313,12 @@
       "rust-analyzer.cargo.sysroot" = "discover";
       "rust-analyzer.check.command" = "clippy";
       "rust-analyzer.checkOnSave" = true;
-      "terminal.integrated.defaultProfile.linux" = "zsh";
+      "svelte.enable-ts-plugin" = true;
     };
     extensions = with pkgs.vscode-extensions; [
       rust-lang.rust-analyzer
+      svelte.svelte-vscode
+      bradlc.vscode-tailwindcss
     ];
   };
 
