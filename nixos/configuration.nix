@@ -77,7 +77,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vulae = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input" # TEMP: This should probably not be set.
+    ];
     shell = pkgs.zsh;
   };
 
