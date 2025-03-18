@@ -21,6 +21,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # ZRAM, I need to download more ram smh :(
+  zramSwap = {
+    enable = true;
+  };
+
   # Nvidia drivers stuff
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
