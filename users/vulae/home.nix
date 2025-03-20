@@ -34,6 +34,8 @@
           zulu17
           zulu21
           graalvm-ce
+          semeru-bin-17
+          semeru-bin # 21
         ];
       })
 
