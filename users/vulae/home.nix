@@ -88,6 +88,9 @@
         animation-time-autohide = 0;
         enable-intellihide = false;
       };
+      "org/gnome/mutter" = {
+        check-alive-timeout = 60000;
+      };
     };
   };
 
