@@ -16,6 +16,7 @@
     ./plugins/rustaceanvim.nix
     ./plugins/markview.nix
     ./plugins/diffview.nix
+    ./plugins/nvim-tree.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
