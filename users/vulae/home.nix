@@ -50,6 +50,8 @@
       # Gnome customization
       gnomeExtensions.hide-top-bar
       gnomeExtensions.blur-my-shell
+
+      vlc
     ];
 
     pointerCursor = {
