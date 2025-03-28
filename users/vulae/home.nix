@@ -81,7 +81,7 @@
         speed = "0.4";
       };
       "org/gnome/desktop/input-sources" = {
-        xkb-options = ["compose:ralt", "caps:backspace"];
+        xkb-options = ["compose:ralt" "caps:backspace"];
       };
       # FIXME: When going into overview, fullscreen applications get resized with a 'fake' top bar, which is never visible.
       "org/gnome/shell/extensions/hidetopbar" = {
