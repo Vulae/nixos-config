@@ -177,6 +177,8 @@
   system.activationScripts.createSteamRecordingsDir = {
     text = ''
       mkdir -p /home/vulae/.steam_recordings/video
+      chmod -R 775 /home/vulae/.steam_recordings
+      chown -R vulae:users /home/vulae/.steam_recordings
     '';
     deps = [];
   };
