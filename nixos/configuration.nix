@@ -163,7 +163,7 @@
   hardware.steam-hardware.enable = true;
 
   # Create tmpfs for steam recordings (I have enough RAM, and don't want to utterly destroy my SSD)
-  fileSystems."/home/vulae/.steam_recordings" = {
+  fileSystems."/home/vulae/.steam_recordings/video" = {
     device = "tmpfs";
     fsType = "tmpfs";
     options = [
@@ -176,7 +176,7 @@
   };
   system.activationScripts.createSteamRecordingsDir = {
     text = ''
-      mkdir -p /home/vulae/.steam_recordings
+      mkdir -p /home/vulae/.steam_recordings/video
     '';
     deps = [];
   };
