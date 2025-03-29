@@ -153,6 +153,7 @@
 
   programs.git.enable = true;
   programs.zsh.enable = true;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -160,6 +161,26 @@
     localNetworkGameTransfers.openFirewall = true;
   };
   hardware.steam-hardware.enable = true;
+
+  # Create tmpfs for steam recordings (I have enough RAM, and don't want to utterly destroy my SSD)
+  fileSystems."/home/vulae/.steam_recordings" = {
+    device = "tmpfs";
+    fsType = "tmpfs";
+    options = [
+      "size=4G"
+      "mode=1777"
+      # 'id' COMMAND OUT: uid=1000(vulae) gid=100(users) groups=100(users)
+      "uid=1000"
+      "gid=100"
+    ];
+  };
+  system.activationScripts.createSteamRecordingsDir = {
+    text = ''
+      mkdir -p /home/vulae/.steam_recordings
+    '';
+    deps = [];
+  };
+
   programs.gamemode.enable = true;
 
   security.pam.loginLimits = [
