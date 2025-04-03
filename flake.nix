@@ -13,12 +13,18 @@
       url = "github:nix-community/nixvim/nixos-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
+    aagl,
     ...
   }: {
     nixosConfigurations = {
@@ -27,8 +33,8 @@
 
         modules = [
           ./nixos/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
+          aagl.nixosModules.default
+          home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
