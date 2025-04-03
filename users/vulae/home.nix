@@ -43,6 +43,8 @@
       protonup-qt
       protontricks
 
+      bottles
+
       # Image editor / utilities
       gimp
       imagemagick
