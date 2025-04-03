@@ -91,6 +91,7 @@
         enable-intellihide = false;
       };
       "org/gnome/mutter" = {
+        # FIXME: This doesn't seem to set correctly.
         check-alive-timeout = 60000;
       };
     };

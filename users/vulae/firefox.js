@@ -3,6 +3,7 @@ user_pref("browser.compactmode.show", true);
 user_pref("browser.uidensity", 1);
 
 user_pref("general.autoScroll", true);
+user_pref("clipboard.autocopy", false);
 
 user_pref("extensions.pocket.enable", false);
 
