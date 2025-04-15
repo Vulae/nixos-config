@@ -5,7 +5,7 @@ user_pref("browser.uidensity", 1);
 user_pref("general.autoScroll", true);
 user_pref("clipboard.autocopy", false);
 
-user_pref("extensions.pocket.enable", false);
+user_pref("extensions.pocket.enabled", false);
 
 // I have no clue but it makes font more readable.
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
