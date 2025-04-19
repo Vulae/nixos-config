@@ -198,6 +198,18 @@
             template = "https://www.crunchyroll.com/search?q={searchTerms}";
           }];
         };
+        "Minecraft Wiki" = {
+          definedAliases = [ "!mw" ];
+          urls = [{
+            template = "https://minecraft.wiki/w/Special:Search?search={searchTerms}";
+          }];
+        };
+        "Modrinth mods" = {
+          definedAliases = [ "!mm" ];
+          urls = [{
+            template = "https://modrinth.com/mods?q={searchTerms}";
+          }];
+        };
       };
     };
   };
