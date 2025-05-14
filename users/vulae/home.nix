@@ -47,6 +47,7 @@
 
       # Image editor / utilities
       gimp
+      aseprite
       imagemagick
 
       # Gnome customization
