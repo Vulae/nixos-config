@@ -336,11 +336,16 @@
       "rust-analyzer.check.command" = "clippy";
       "rust-analyzer.checkOnSave" = true;
       "svelte.enable-ts-plugin" = true;
+      "svelte.plugin.svelte.runesLegacyModeCodeLens.enable" = false;
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "prettier.configPath" = ".prettierrc";
     };
     extensions = with pkgs.vscode-extensions; [
       rust-lang.rust-analyzer
       svelte.svelte-vscode
       bradlc.vscode-tailwindcss
+      esbenp.prettier-vscode
+      dbaeumer.vscode-eslint
     ];
   };
 
