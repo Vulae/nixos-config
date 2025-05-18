@@ -347,6 +347,7 @@
       bradlc.vscode-tailwindcss
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
+      ecmel.vscode-html-css
     ];
   };
 
