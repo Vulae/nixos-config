@@ -319,11 +319,13 @@
   programs.vscode = {
     enable = true;
     userSettings = {
+      "update.mode" = "manual";
       "window.titleBarStyle" = "custom";
       "terminal.integrated.defaultProfile.linux" = "zsh";
       "security.workspace.trust.enabled" = false;
       "explorer.confirmDragAndDrop" = false;
       "explorer.confirmDelete" = false;
+      "editor.stickyScroll.enabled" = false;
       "editor.autoClosingBrackets" = "always";
       "editor.inlayHints.enabled" = "offUnlessPressed";
       "editor.formatOnSave" = true;
@@ -340,6 +342,10 @@
       "svelte.plugin.svelte.runesLegacyModeCodeLens.enable" = false;
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "prettier.configPath" = ".prettierrc";
+      "tailwindCSS.includeLanguages" = {
+        "sass" = "css";
+      };
+      "ostw.deltintegerPath" = "/home/vulae/.config/Code/User/globalStorage/deltin.overwatch-script-to-workshop/Server/bin/linux-x64/Deltinteger";
     };
     extensions = with pkgs.vscode-extensions; [
       rust-lang.rust-analyzer
@@ -348,6 +354,8 @@
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
       ecmel.vscode-html-css
+      ms-dotnettools.csharp
+      ms-dotnettools.csdevkit
     ];
   };
 

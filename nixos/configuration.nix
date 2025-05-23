@@ -191,6 +191,11 @@
   programs.honkers-launcher.enable = false;
   programs.wavey-launcher.enable = false;
   programs.sleepy-launcher.enable = false;
+  
+  # TEMP: Until https://github.com/ItsDeltin/Overwatch-Script-To-Workshop to work, this is the stupid workaround.
+  # programs.nix-ld = {
+  #   enable = true;
+  # };
 
   security.pam.loginLimits = [
     # Disable coredumps
