@@ -17,6 +17,7 @@
     ./plugins/markview.nix
     ./plugins/diffview.nix
     ./plugins/nvim-tree.nix
+    ./plugins/cord.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #

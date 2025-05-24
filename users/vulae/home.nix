@@ -138,74 +138,71 @@
       extraConfig = builtins.readFile ./firefox.js;
       # TODO: Search engine icons
       search.engines = {
-        "Google".metaData.hideOneOffButton = true;
-        "DuckDuckGo".metaData.hideOneOffButton = true;
-        "Bing".metaData.hideOneOffButton = true;
-        "Wikipedia (en)".metaData.alias = "!w";
-        "GitHub" = {
+        google.metaData.hideOneOffButton = true;
+        ddg.metaData.hideOneOffButton = true;
+        bing.metaData.hideOneOffButton = true;
+        wikipedia.metaData.alias = "!w";
+        github = {
           definedAliases = [ "!gh" ];
           urls = [{
             template = "https://github.com/search?q={searchTerms}&ref=opensearch";
           }];
         };
-        "YouTube" = {
+        youtube = {
           definedAliases = [ "!yt" ];
           urls = [{
             template = "https://www.youtube.com/results?search_query={searchTerms}&page={startPage}&utm_source=opensearch";
           }];
         };
-        # NOTE: Non-official
-        "Twitch" = {
+        twitch = {
           definedAliases = [ "!tw" ];
           urls = [{
             template = "https://www.twitch.tv/search?term={searchTerms}";
           }];
         };
-        # NOTE: Non-official
-        "Reddit" = {
+        reddit = {
           definedAliases = [ "!r" ];
           urls = [{
             template = "https://www.reddit.com/search/?q={searchTerms}";
           }];
         };
-        "Docs.rs" = {
+        rust-docs = {
           definedAliases = [ "!rd" ];
           urls = [{
             template = "https://docs.rs/releases/search?query={searchTerms}";
           }];
         };
-        "NixOS packages" = {
+        nix-packages = {
           definedAliases = [ "!n" ];
           urls = [{
             template = "https://search.nixos.org/packages?query={searchTerms}";
           }];
         };
-        "NixOS Home Manager Options" = {
+        nix-home-manager = {
           definedAliases = [ "!nhm" ];
           urls = [{
             template = "https://home-manager-options.extranix.com/?query={searchTerms}";
           }];
         };
-        "My Anime List" = {
+        my-anime-list = {
           definedAliases = [ "!mal" ];
           urls = [{
             template = "https://myanimelist.net/anime.php?q={searchTerms}";
           }];
         };
-        # NOTE: Non-official
-        "Crunchyroll" = {
+        crunchyroll = {
           definedAliases = [ "!cr" ];
           urls = [{
             template = "https://www.crunchyroll.com/search?q={searchTerms}";
           }];
         };
-        "Minecraft Wiki" = {
+        minecraft-wiki = {
           definedAliases = [ "!mw" ];
           urls = [{
             template = "https://minecraft.wiki/w/Special:Search?search={searchTerms}";
           }];
         };
-        "Modrinth mods" = {
+        modrinth = {
           definedAliases = [ "!mm" ];
           urls = [{
             template = "https://modrinth.com/mods?q={searchTerms}";
@@ -318,48 +315,50 @@
 
   programs.vscode = {
     enable = true;
-    userSettings = {
-      "update.mode" = "manual";
-      "window.titleBarStyle" = "custom";
-      "terminal.integrated.defaultProfile.linux" = "zsh";
-      "security.workspace.trust.enabled" = false;
-      "explorer.confirmDragAndDrop" = false;
-      "explorer.confirmDelete" = false;
-      "editor.stickyScroll.enabled" = false;
-      "editor.autoClosingBrackets" = "always";
-      "editor.inlayHints.enabled" = "offUnlessPressed";
-      "editor.formatOnSave" = true;
-      "editor.useTabStops" = false;
-      "editor.quickSuggestions" = {
-          "other" = "on";
-          "comments" = "off";
-          "strings" = "on";
+    profiles.default = {
+      userSettings = {
+        "update.mode" = "manual";
+        "window.titleBarStyle" = "custom";
+        "terminal.integrated.defaultProfile.linux" = "zsh";
+        "security.workspace.trust.enabled" = false;
+        "explorer.confirmDragAndDrop" = false;
+        "explorer.confirmDelete" = false;
+        "editor.stickyScroll.enabled" = false;
+        "editor.autoClosingBrackets" = "always";
+        "editor.inlayHints.enabled" = "offUnlessPressed";
+        "editor.formatOnSave" = true;
+        "editor.useTabStops" = false;
+        "editor.quickSuggestions" = {
+            "other" = "on";
+            "comments" = "off";
+            "strings" = "on";
+        };
+        "rust-analyzer.cargo.sysroot" = "discover";
+        "rust-analyzer.check.command" = "clippy";
+        "rust-analyzer.checkOnSave" = true;
+        "svelte.enable-ts-plugin" = true;
+        "svelte.plugin.svelte.runesLegacyModeCodeLens.enable" = false;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "prettier.configPath" = ".prettierrc";
+        "tailwindCSS.includeLanguages" = {
+          "sass" = "css";
+        };
+        "ostw.deltintegerPath" = "/home/vulae/.config/Code/User/globalStorage/deltin.overwatch-script-to-workshop/Server/bin/linux-x64/Deltinteger";
       };
-      "rust-analyzer.cargo.sysroot" = "discover";
-      "rust-analyzer.check.command" = "clippy";
-      "rust-analyzer.checkOnSave" = true;
-      "svelte.enable-ts-plugin" = true;
-      "svelte.plugin.svelte.runesLegacyModeCodeLens.enable" = false;
-      "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      "prettier.configPath" = ".prettierrc";
-      "tailwindCSS.includeLanguages" = {
-        "sass" = "css";
-      };
-      "ostw.deltintegerPath" = "/home/vulae/.config/Code/User/globalStorage/deltin.overwatch-script-to-workshop/Server/bin/linux-x64/Deltinteger";
+      extensions = with pkgs.vscode-extensions; [
+        rust-lang.rust-analyzer
+        svelte.svelte-vscode
+        bradlc.vscode-tailwindcss
+        esbenp.prettier-vscode
+        dbaeumer.vscode-eslint
+        ecmel.vscode-html-css
+        ms-dotnettools.csharp
+        ms-dotnettools.csdevkit
+      ];
     };
-    extensions = with pkgs.vscode-extensions; [
-      rust-lang.rust-analyzer
-      svelte.svelte-vscode
-      bradlc.vscode-tailwindcss
-      esbenp.prettier-vscode
-      dbaeumer.vscode-eslint
-      ecmel.vscode-html-css
-      ms-dotnettools.csharp
-      ms-dotnettools.csdevkit
-    ];
   };
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 }
