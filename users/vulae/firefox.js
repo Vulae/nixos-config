@@ -13,6 +13,7 @@ user_pref("gfx.font_rendering.cleartype_params.rendering_mode", -1);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("gfx.webrender.all", true);
 
+user_pref("browser.newtabpage.activity-stream.showWeather", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
