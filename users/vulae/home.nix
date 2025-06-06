@@ -55,6 +55,8 @@
       gnomeExtensions.blur-my-shell
 
       vlc
+
+      polychromatic
     ];
 
     pointerCursor = {
@@ -141,6 +143,8 @@
         google.metaData.hideOneOffButton = true;
         ddg.metaData.hideOneOffButton = true;
         bing.metaData.hideOneOffButton = true;
+        ebay.metaData.hideOneOffButton = true;
+        amazon.metaData.hideOneOffButton = true;
         wikipedia.metaData.alias = "!w";
         github = {
           definedAliases = [ "!gh" ];
@@ -168,6 +172,12 @@
         };
         rust-docs = {
           definedAliases = [ "!rd" ];
+          urls = [{
+            template = "https://doc.rust-lang.org/std/index.html?search={searchTerms}";
+          }];
+        };
+        rust-crates-docs = {
+          definedAliases = [ "!rc" ];
           urls = [{
             template = "https://docs.rs/releases/search?query={searchTerms}";
           }];
@@ -316,8 +326,9 @@
   programs.vscode = {
     enable = true;
     profiles.default = {
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
       userSettings = {
-        "update.mode" = "manual";
         "window.titleBarStyle" = "custom";
         "terminal.integrated.defaultProfile.linux" = "zsh";
         "security.workspace.trust.enabled" = false;
@@ -354,6 +365,14 @@
         ecmel.vscode-html-css
         ms-dotnettools.csharp
         ms-dotnettools.csdevkit
+        jnoortheen.nix-ide
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "overwatch-script-to-workshop";
+          publisher = "deltin";
+          version = "3.12.2";
+          hash = "sha256-Ogkp9mlSLf5sFD2Lo4xDeRDja2Jp+sFnt0v98N62vR4=";
+        }
       ];
     };
   };

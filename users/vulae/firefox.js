@@ -4,6 +4,7 @@ user_pref("browser.uidensity", 1);
 
 user_pref("general.autoScroll", true);
 user_pref("clipboard.autocopy", false);
+user_pref("middlemouse.paste", false);
 
 user_pref("extensions.pocket.enabled", false);
 
@@ -24,4 +25,17 @@ user_pref("dom.security.https_only_mode", true);
 
 user_pref("media.ffmpeg.enabled", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
+
+user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
+user_pref("browser.urlbar.suggest.bookmark", false);
+user_pref("browser.urlbar.suggest.engines", false);
+user_pref("browser.urlbar.suggest.history", false);
+user_pref("browser.urlbar.suggest.openpage", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.urlbar.suggest.recentsearches", false);
+user_pref("browser.urlbar.suggest.searches", false);
+user_pref("browser.urlbar.suggest.topsites", false);
+user_pref("browser.urlbar.suggest.trending", false);
 

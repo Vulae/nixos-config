@@ -38,6 +38,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  hardware.openrazer.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
@@ -84,6 +86,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "openrazer"
       "input" # TEMP: This should probably not be set.
     ];
     shell = pkgs.zsh;
@@ -117,6 +120,10 @@
     vim
     niri
     wl-clipboard wayland-utils xwayland-satellite
+
+    openrazer-daemon
+
+    waydroid-helper fakeroot unzip
   ];
 
   # Disable some default gnome apps
@@ -133,6 +140,7 @@
     file-roller # archive manager
     geary       # email client
     seahorse    # password manager
+    decibels    # audio player
 
     # these should be self explanatory
     gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
@@ -191,10 +199,12 @@
   programs.wavey-launcher.enable = false;
   programs.sleepy-launcher.enable = false;
   
-  # TEMP: Until https://github.com/ItsDeltin/Overwatch-Script-To-Workshop to work, this is the stupid workaround.
+  # TEMP: Until I get https://github.com/ItsDeltin/Overwatch-Script-To-Workshop to work, this is the stupid workaround.
   # programs.nix-ld = {
   #   enable = true;
   # };
+
+  virtualisation.waydroid.enable = true;
 
   security.pam.loginLimits = [
     # Disable coredumps
