@@ -56,7 +56,7 @@
 
       vlc
 
-      polychromatic
+      # polychromatic
     ];
 
     pointerCursor = {
@@ -104,7 +104,25 @@
 
   home.file.".XCompose".source = ./.XCompose;
 
-  home.file.".config/autostart/wallpaper.sh".source = ./wallpaper.sh;
+  systemd.user.services.my-keyboard = {
+    Unit = {
+      Description = "Keyboard lighting effects";
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session.target"];
+    };
+    Service = {
+      # TODO: Do something other than this!!!!
+      # Either build on GitHub then use the executable from there,
+      # or make a flake & use it to build it on this computer.
+      ExecStart = "${config.home.homeDirectory}/repos/my-keyboard/target/release/my-keyboard";
+      Restart = "on-failure";
+    };
+    Install = {
+      WantedBy = ["graphical-session.target"];
+    };
+  };
+
+  # home.file.".config/autostart/wallpaper.sh".source = ./wallpaper.sh;
 
   gtk = {
     enable = true;
@@ -140,83 +158,96 @@
       extraConfig = builtins.readFile ./firefox.js;
       # TODO: Search engine icons
       search.engines = {
-        google.metaData.hideOneOffButton = true;
-        ddg.metaData.hideOneOffButton = true;
-        bing.metaData.hideOneOffButton = true;
-        ebay.metaData.hideOneOffButton = true;
-        amazon.metaData.hideOneOffButton = true;
+        google.metaData.hidden = true;
+        ddg.metaData.hidden = true;
+        bing.metaData.hidden = true;
+        ebay.metaData.hidden = true;
+        # FIXME: Doesn't disable @amazon search??????
+        amazon.metaData.hidden = true;
         wikipedia.metaData.alias = "!w";
         github = {
           definedAliases = [ "!gh" ];
           urls = [{
             template = "https://github.com/search?q={searchTerms}&ref=opensearch";
           }];
+          iconMapObj."32" = "https://github.com/favicon.ico";
         };
         youtube = {
           definedAliases = [ "!yt" ];
           urls = [{
             template = "https://www.youtube.com/results?search_query={searchTerms}&page={startPage}&utm_source=opensearch";
           }];
+          iconMapObj."16" = "https://www.youtube.com/favicon.ico";
         };
         twitch = {
           definedAliases = [ "!tw" ];
           urls = [{
             template = "https://www.twitch.tv/search?term={searchTerms}";
           }];
+          iconMapObj."32" = "https://www.twitch.tv/favicon.ico";
         };
         reddit = {
           definedAliases = [ "!r" ];
           urls = [{
             template = "https://www.reddit.com/search/?q={searchTerms}";
           }];
+          iconMapObj."32" = "https://reddit.com/favicon.ico";
         };
         rust-docs = {
           definedAliases = [ "!rd" ];
           urls = [{
             template = "https://doc.rust-lang.org/std/index.html?search={searchTerms}";
           }];
+          iconMapObj."196" = "https://doc.rust-lang.org/favicon.ico";
         };
         rust-crates-docs = {
           definedAliases = [ "!rc" ];
           urls = [{
             template = "https://docs.rs/releases/search?query={searchTerms}";
           }];
+          iconMapObj."32" = "https://docs.rs/-/static/favicon.ico";
         };
         nix-packages = {
           definedAliases = [ "!n" ];
           urls = [{
             template = "https://search.nixos.org/packages?query={searchTerms}";
           }];
+          iconMapObj."16" = "https://search.nixos.org/favicon.png";
         };
         nix-home-manager = {
           definedAliases = [ "!nhm" ];
           urls = [{
             template = "https://home-manager-options.extranix.com/?query={searchTerms}";
           }];
+          iconMapObj."180" = "https://home-manager-options.extranix.com/images/favicon.png";
         };
         my-anime-list = {
           definedAliases = [ "!mal" ];
           urls = [{
             template = "https://myanimelist.net/anime.php?q={searchTerms}";
           }];
+          iconMapObj."48" = "https://myanimelist.net/favicon.ico";
         };
         crunchyroll = {
           definedAliases = [ "!cr" ];
           urls = [{
             template = "https://www.crunchyroll.com/search?q={searchTerms}";
           }];
+          iconMapObj."16" = "https://www.crunchyroll.com/build/assets/img/favicons/favicon-v2-16x16.png";
         };
         minecraft-wiki = {
           definedAliases = [ "!mw" ];
           urls = [{
             template = "https://minecraft.wiki/w/Special:Search?search={searchTerms}";
           }];
+          iconMapObj."32" = "https://minecraft.wiki/favicon.ico";
         };
         modrinth = {
           definedAliases = [ "!mm" ];
           urls = [{
             template = "https://modrinth.com/mods?q={searchTerms}";
           }];
+          iconMapObj."64" = "https://modrinth.com/favicon.ico";
         };
       };
     };
