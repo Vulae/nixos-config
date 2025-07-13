@@ -40,7 +40,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  hardware.openrazer.enable = true;
+  # hardware.openrazer.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -88,7 +88,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "openrazer"
+      # "openrazer"
       "input" # TEMP: This should probably not be set.
     ];
     shell = pkgs.zsh;
@@ -123,7 +123,7 @@
     niri
     wl-clipboard wayland-utils xwayland-satellite
 
-    openrazer-daemon
+    # openrazer-daemon
 
     waydroid-helper fakeroot unzip
   ];

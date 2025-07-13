@@ -104,23 +104,23 @@
 
   home.file.".XCompose".source = ./.XCompose;
 
-  systemd.user.services.my-keyboard = {
-    Unit = {
-      Description = "Keyboard lighting effects";
-      PartOf = ["graphical-session.target"];
-      After = ["graphical-session.target"];
-    };
-    Service = {
-      # TODO: Do something other than this!!!!
-      # Either build on GitHub then use the executable from there,
-      # or make a flake & use it to build it on this computer.
-      ExecStart = "${config.home.homeDirectory}/repos/my-keyboard/target/release/my-keyboard";
-      Restart = "on-failure";
-    };
-    Install = {
-      WantedBy = ["graphical-session.target"];
-    };
-  };
+  # systemd.user.services.my-keyboard = {
+  #   Unit = {
+  #     Description = "Keyboard lighting effects";
+  #     PartOf = ["graphical-session.target"];
+  #     After = ["graphical-session.target"];
+  #   };
+  #   Service = {
+  #     # TODO: Do something other than this!!!!
+  #     # Either build on GitHub then use the executable from there,
+  #     # or make a flake & use it to build it on this computer.
+  #     ExecStart = "${config.home.homeDirectory}/repos/my-keyboard/target/release/my-keyboard";
+  #     Restart = "on-failure";
+  #   };
+  #   Install = {
+  #     WantedBy = ["graphical-session.target"];
+  #   };
+  # };
 
   # home.file.".config/autostart/wallpaper.sh".source = ./wallpaper.sh;
 
