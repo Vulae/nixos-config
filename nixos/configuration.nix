@@ -14,6 +14,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -163,6 +165,13 @@
 
   programs.steam = {
     enable = true;
+    # FIXME: For some reason just doesn't fix my issue.
+    # probably is a different issue I'm experiencing then.
+    # package = pkgs.steam.override {
+    #   # Fix timezone being set incorrectly. (incorrectly set to GMT+1 for me instead of GMT-5)
+    #   # https://github.com/NixOS/nixpkgs/issues/338266#issuecomment-2419568331
+    #   extraBwrapArgs = [ "--unsetenv TZ" ];
+    # };
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
