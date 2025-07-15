@@ -408,6 +408,38 @@
     };
   };
 
+  programs.mangohud = {
+    enable = true;
+    settings = {
+      wine = true;
+      winesync = true;
+
+      gamemode = true;
+
+      core_load = true;
+      cpu_mhz = true;
+      cpu_power = true;
+      cpu_temp = true;
+
+      gpu_power = true;
+      gpu_temp = true;
+      gpu_core_clock = true;
+      vram = true;
+
+      resolution = true;
+      frametime = true;
+
+      procmem = true;
+      ram = true;
+
+      io_read = true;
+      io_write = true;
+
+      # Hide by default, enable again by Shift_R+F12
+      no_display = true;
+    };
+  };
+
   systemd.user.startServices = "sd-switch";
 
   home.stateVersion = "25.05";
