@@ -177,6 +177,9 @@
     #  For more options, you can see `:help option-list`
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=globals#opts
     opts = {
+      # Disable swap files
+      swapfile = false;
+
       # Show line numbers
       number = true;
       # You can also add relative line numbers, to help with jumping.
