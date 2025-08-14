@@ -18,6 +18,11 @@
       url = "github:ezKEa/aagl-gtk-on-nix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    my-keyboard = {
+      url = "github:Vulae/my-keyboard";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -25,6 +30,7 @@
     nixpkgs,
     home-manager,
     aagl,
+    my-keyboard,
     ...
   }: {
     nixosConfigurations = {
@@ -40,7 +46,7 @@
               useUserPackages = true;
               backupFileExtension = "hm-backup";
               users.vulae = import ./users/vulae/home.nix;
-              extraSpecialArgs = { inherit inputs; };
+              extraSpecialArgs = { inherit inputs my-keyboard; };
             };
           }
         ];

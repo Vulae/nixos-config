@@ -3,8 +3,13 @@
   lib,
   config,
   pkgs,
+  my-keyboard,
   ...
-}: {
+}:
+let
+  my-keyboard-pkg = my-keyboard.packages.${pkgs.system}.default;
+in
+{
   imports = [
     ./nvim/nixvim.nix
   ];
@@ -111,10 +116,7 @@
       After = ["graphical-session.target"];
     };
     Service = {
-      # TODO: Do something other than this!!!!
-      # Either build on GitHub then use the executable from there,
-      # or make a flake & use it to build it on this computer.
-      ExecStart = "${config.home.homeDirectory}/repos/my-keyboard/target/release/my-keyboard";
+      ExecStart = "${lib.getExe my-keyboard-pkg}";
       Restart = "on-failure";
     };
     Install = {
