@@ -18,7 +18,7 @@
     };
 
     packages = with pkgs; [
-      ffmpeg
+      ffmpeg-full
 
       pciutils # NOTE: Needed for neofetch to detect GPU
       wget
