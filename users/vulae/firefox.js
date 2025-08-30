@@ -6,6 +6,8 @@ user_pref("general.autoScroll", true);
 user_pref("clipboard.autocopy", false);
 user_pref("middlemouse.paste", false);
 
+user_pref("browser.tabs.groups.enabled", false);
+
 user_pref("extensions.pocket.enabled", false);
 
 // I have no clue but it makes font more readable.

@@ -25,7 +25,7 @@ in
     packages = with pkgs; [
       ffmpeg-full
 
-      pciutils # NOTE: Needed for neofetch to detect GPU
+      pciutils # Needed for neofetch to detect GPU
       wget
       bc # Command line calculator
 
@@ -55,13 +55,15 @@ in
       aseprite
       imagemagick
 
+      vlc
+
       # Gnome customization
       gnomeExtensions.hide-top-bar
       gnomeExtensions.blur-my-shell
-
-      vlc
-
-      # polychromatic
+      
+      # Rust development tools
+      cargo-info
+      rusty-man
     ];
 
     pointerCursor = {
