@@ -64,6 +64,7 @@ in
       # Rust development tools
       cargo-info
       rusty-man
+      cargo-show-asm
     ];
 
     pointerCursor = {
@@ -412,6 +413,29 @@ in
           hash = "sha256-Ogkp9mlSLf5sFD2Lo4xDeRDja2Jp+sFnt0v98N62vR4=";
         }
       ];
+    };
+  };
+
+  programs.zed-editor = {
+    enable = true;
+    extensions = [
+      "nix"
+      "catppuccin"
+      "catppuccin-icons"
+      "codebook" # Spellchecker
+      "toml"
+      "basher" # Bash language server
+      "assembly"
+    ];
+    extraPackages = (with pkgs; [
+      nixd
+    ]);
+    userSettings = {
+      agent.enabled = false;
+      theme = "Catppuccin Mocha";
+      vim_mode = true;
+      relative_line_numbers = true;
+      git.inline_blame.enabled = false;
     };
   };
 
