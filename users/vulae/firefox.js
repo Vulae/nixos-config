@@ -6,7 +6,7 @@ user_pref("general.autoScroll", true);
 user_pref("clipboard.autocopy", false);
 user_pref("middlemouse.paste", false);
 
-user_pref("browser.ml.enabled", false);
+user_pref("browser.ml.enable", false);
 user_pref("browser.ml.chat.enabled", false);
 
 user_pref("browser.tabs.groups.enabled", false);
