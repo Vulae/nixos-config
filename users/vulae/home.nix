@@ -65,6 +65,8 @@ in
       cargo-info
       rusty-man
       cargo-show-asm
+
+      nix-init
     ];
 
     pointerCursor = {
