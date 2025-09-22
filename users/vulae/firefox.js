@@ -32,6 +32,12 @@ user_pref("dom.security.https_only_mode", true);
 
 user_pref("media.ffmpeg.enabled", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.hardware-video-decoding.enabled", true);
+user_pref("media.hardware-video-encoding.enabled", true);
+// For some reason needed to get more ffmpeg hardware supported formats?
+// But still not hardware decoders/encoders listed from ffmpeg
+user_pref("media.hardware-video-decoding.force-enabled", true);
+user_pref("media.hardware-video-encoding.force-enabled", true);
 
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false);

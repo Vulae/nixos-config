@@ -327,8 +327,8 @@ in
   };
 
   programs.btop = {
-    # FIXME: Doesn't show GPU
     enable = true;
+    package = pkgs.btop-cuda;
     settings = {
       color_theme = "kyli0x";
       theme_background = false;
