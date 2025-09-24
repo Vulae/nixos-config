@@ -336,6 +336,9 @@ in
       update_ms = 500;
       proc_per_core = true;
       proc_sorting = "memory";
+      shown_boxes = "cpu gpu0 mem net proc";
+      cpu_single_graph = true;
+      gpu_mirror_graph = false;
     };
   };
 
