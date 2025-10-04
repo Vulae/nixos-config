@@ -154,11 +154,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1758739026,
-        "narHash": "sha256-C37ST1BI1xj+ZnLQ+Xn4M5aXZP+kgzUh+2Rr/0egYDI=",
+        "lastModified": 1759275187,
+        "narHash": "sha256-KCbqNGuM3S5gwTk70bU6p95lBuSy4GQDtrllHsU/kM0=",
         "owner": "Vulae",
         "repo": "my-keyboard",
-        "rev": "55ecb905bfbe34d8d1bb14b3a4e51806f4818899",
+        "rev": "348d52d10bfff5b85d1636509c5c9263384f9022",
         "type": "github"
       },
       "original": {

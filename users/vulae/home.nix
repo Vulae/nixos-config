@@ -427,13 +427,22 @@ in
       "nix"
       "catppuccin"
       "catppuccin-icons"
+      # "snippets"
       "codebook" # Spellchecker
       "toml"
       "basher" # Bash language server
       "assembly"
+      "html"
+      "html-snippets"
+      "svelte"
+      "svelte-snippets"
+      "css-modules-kit"
+      "scss"
+      "typescript-snippets"
     ];
     extraPackages = (with pkgs; [
       nixd
+      nil
     ]);
     userSettings = {
       agent.enabled = false;
@@ -441,6 +450,7 @@ in
       vim_mode = true;
       relative_line_numbers = true;
       git.inline_blame.enabled = false;
+      format_on_save = "on";
     };
   };
 
