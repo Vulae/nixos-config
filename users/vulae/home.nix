@@ -410,6 +410,8 @@ in
         ms-dotnettools.csharp
         ms-dotnettools.csdevkit
         jnoortheen.nix-ide
+        github.vscode-pull-request-github
+        github.vscode-github-actions
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "overwatch-script-to-workshop";
