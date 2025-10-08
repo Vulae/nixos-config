@@ -94,22 +94,24 @@
     shell = pkgs.zsh;
   };
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
+  # nix = let
+  #   flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  # in {
+  #   registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+  #   nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+  # };
+
+  nix = {
     settings = {
       experimental-features = "nix-command flakes";
       flake-registry = "";
       nix-path = config.nix.nixPath;
     };
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     gc = {
       automatic = true;
-      dates = "daily";
+      dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    # Helps with package cache, or something. IDK I just copied this from somewhere.
     extraOptions = ''
       keep-outputs = true
       keep-derivations = true
