@@ -139,10 +139,11 @@
 <Multi_key> <n> <e> <u> <t> <r> <a> <l> : "😐"
 <Multi_key> <h> <o> <t> <d> <o> <g>     : "🌭"
 <Multi_key> <c> <r> <o> <w> <n>         : "👑"
-<Multi_key> <less> <3> <less> <3>       : "💕"
+# <Multi_key> <less> <3> <less> <3>       : "💕"
 <Multi_key> <less> <slash> <3>          : "💔"
 <Multi_key> <d> <o> <w> <n>             : "📉"
 <Multi_key> <u> <p>                     : "📈"
+<Multi_key> <g> <o> <a> <t>             : "🐐"
 
 # https://www.kaomoji.co/pages/emoji
 <Multi_key> <F> <0> <0> <0> : "\"(* ^ ω ^)"

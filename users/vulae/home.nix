@@ -109,6 +109,9 @@ in
         # FIXME: This doesn't seem to set correctly.
         check-alive-timeout = 60000;
       };
+      "org/gnome/desktop/default-applications/terminal" = {
+        exec = "kitty";
+      };
     };
   };
 
@@ -165,12 +168,12 @@ in
       extraConfig = builtins.readFile ./firefox.js;
       # TODO: Search engine icons
       search.engines = {
-        google.metaData.hidden = true;
+        google.metaData.alias = "!g";
         ddg.metaData.hidden = true;
         bing.metaData.hidden = true;
         ebay.metaData.hidden = true;
-        # FIXME: Doesn't disable @amazon search??????
-        amazon.metaData.hidden = true;
+        amazondotcom-us.metaData.hidden = true;
+        perplexity.metaData.hidden = true;
         wikipedia.metaData.alias = "!w";
         github = {
           definedAliases = [ "!gh" ];
@@ -299,6 +302,8 @@ in
       name = "CaskaydiaCoveNF-Regular";
     };
     settings = {
+      confirm_os_window_close = 0;
+
       font_features = "CaskaydiaCoveNF-Regular -liga";
 
       notify_on_cmd_finish = "never";
@@ -330,7 +335,7 @@ in
     enable = true;
     package = pkgs.btop-cuda;
     settings = {
-      color_theme = "kyli0x";
+      color_theme = "HotPurpleTrafficLight";
       theme_background = false;
       vim_keys = true;
       update_ms = 500;

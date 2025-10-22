@@ -151,7 +151,16 @@
     gnome-font-viewer # gnome-logs
     gnome-maps gnome-music gnome-photos # gnome-screenshot gnome-system-monitor
     gnome-weather gnome-disk-utility gnome-connections gnome-tour
+
+    gnome-terminal
   ];
+
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "kitty";
+  };
+
+  services.gnome.sushi.enable = true;
 
   xdg.portal = {
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
