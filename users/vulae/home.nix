@@ -363,10 +363,10 @@ in
 
   programs.obs-studio.enable = true;
 
-  home.file.".config/vesktop/themes/CapnKitten.BetterDiscord.Material-Discord.theme.css".source = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/7e4a3bdc1f4f4906e4eef02d6fd7e26f0ae0bd10/Themes/Material-Discord/css/source.css";
-    sha256 = "cd300438136d763660a916020ec50037c6bdc6073b8e48dd453571379455c89f";
-  };
+  # https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord
+  home.file.".config/vesktop/themes/CapnKitten.BetterDiscord.Material-Discord.css".text = ''
+    @import url("https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/source.css");
+  '';
 
   programs.fuzzel.enable = true;
 
