@@ -89,7 +89,7 @@
       "networkmanager"
       "wheel"
       "openrazer"
-      "input" # TEMP: This should probably not be set.
+      "input" # my-keyboard listens to keyboard inputs to play effects.
     ];
     shell = pkgs.zsh;
   };
