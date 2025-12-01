@@ -7,7 +7,7 @@
   ...
 }:
 let
-  my-keyboard-pkg = my-keyboard.packages.${pkgs.system}.default;
+  my-keyboard-pkg = my-keyboard.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   imports = [
@@ -38,7 +38,7 @@ in
           jdk21
           zulu17
           zulu21
-          graalvm-ce
+          graalvmPackages.graalvm-ce
           semeru-bin-17
           semeru-bin # 21
         ];
@@ -267,9 +267,9 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Vulae";
-    userEmail = "vulae.f@gmail.com";
-    extraConfig = {
+    settings.user = {
+      name = "Vulae";
+      email = "vulae.f@gmail.com";
       core = {
         editor = "nvim";
         pager = "nvim +Man!";
@@ -358,6 +358,7 @@ in
           mode = "horizontal";
       };
       backend = "neofetch";
+      pride_month_disable = false;
     };
   };
 
@@ -497,5 +498,5 @@ in
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }
