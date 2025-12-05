@@ -267,9 +267,11 @@ in
 
   programs.git = {
     enable = true;
-    settings.user = {
-      name = "Vulae";
-      email = "vulae.f@gmail.com";
+    settings = {
+      user = {
+        name = "Vulae";
+        email = "vulae.f@gmail.com";
+      };
       core = {
         editor = "nvim";
         pager = "nvim +Man!";
