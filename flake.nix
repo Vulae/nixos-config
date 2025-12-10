@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    blender = {
+      url = "github:edolstra/nix-warez/master?dir=blender";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +34,7 @@
     self,
     nixpkgs,
     home-manager,
+    blender,
     aagl,
     my-keyboard,
     ...
@@ -46,7 +52,7 @@
               useUserPackages = true;
               backupFileExtension = "hm-backup";
               users.vulae = import ./users/vulae/home.nix;
-              extraSpecialArgs = { inherit inputs my-keyboard; };
+              extraSpecialArgs = { inherit inputs blender my-keyboard; };
             };
           }
         ];

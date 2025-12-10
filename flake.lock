@@ -23,6 +23,29 @@
         "type": "github"
       }
     },
+    "blender": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "blender",
+        "lastModified": 1763587309,
+        "narHash": "sha256-thH+603iAFvKojLbI+LiJXtrR0WwlikZpyp68C2nD1A=",
+        "owner": "edolstra",
+        "repo": "nix-warez",
+        "rev": "9417de2cd97c03c12cd063e01e95eda790177dcb",
+        "type": "github"
+      },
+      "original": {
+        "dir": "blender",
+        "owner": "edolstra",
+        "ref": "master",
+        "repo": "nix-warez",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -265,6 +288,7 @@
     "root": {
       "inputs": {
         "aagl": "aagl",
+        "blender": "blender",
         "home-manager": "home-manager",
         "my-keyboard": "my-keyboard",
         "nixpkgs": "nixpkgs_3",

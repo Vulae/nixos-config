@@ -3,10 +3,12 @@
   lib,
   config,
   pkgs,
+  blender,
   my-keyboard,
   ...
 }:
 let
+  blender-pkg = blender.packages.${pkgs.stdenv.hostPlatform.system}.default;
   my-keyboard-pkg = my-keyboard.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
@@ -67,6 +69,8 @@ in
       cargo-show-asm
 
       nix-init
+
+      blender-pkg
     ];
 
     pointerCursor = {
@@ -286,6 +290,9 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    initContent = ''
+      setopt globdots
+    '';
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "man" "rust" "gh" ];
