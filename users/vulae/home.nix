@@ -169,7 +169,113 @@ in
   programs.firefox = {
     enable = true;
     profiles.default = {
-      extraConfig = builtins.readFile ./firefox.js;
+      settings = {
+        "browser.compactmode.show" = true;
+        "browser.uidensity" = 1;
+
+        "general.autoScroll" = true;
+        "clipboard.autocopy" = false;
+        "middlemouse.paste" = false;
+        "browser.tabs.searchclipboardfor.middleclick" = false;
+
+        "browser.ml.enable" = false;
+        "browser.ml.chat.enabled" = false;
+        "browser.ml.chat.menu" = false;
+        "browser.ml.linkPreview.enabled" = false;
+
+        "browser.tabs.groups.enabled" = false;
+
+        "extensions.pocket.enabled" = false;
+
+        # I have no clue but it makes font more readable.
+        "gfx.font_rendering.cleartype_params.force_gdi_classic_for_families" = "";
+        "gfx.font_rendering.cleartype_params.rendering_mode", = 1;
+        "gfx.font_rendering.directwrite.use_gdi_table_loading" = false;
+        "gfx.webrender.all" = true;
+
+        "browser.newtabpage.activity-stream.showWeather" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.pinned" = [
+          {
+            url = "https://youtube.com";
+            label = "YouTube";
+          }
+          {
+            url = "https://twitch.tv";
+            label = "Twitch";
+          },
+          {
+            url = "https://github.com";
+            label = "GitHub";
+          },
+          {
+            url = "https://reddit.com";
+            label = "Reddit";
+          },
+          {
+            url = "https://mail.google.com";
+            label = "Gmail";
+          },
+          {
+            url = "https://google.com";
+            label = "Google";
+          },
+          {
+            url = "https://wikipedia.org";
+            label = "Wikipedia";
+          },
+          {
+            url = "https://gchq.github.io/CyberChef/";
+            label = "CyberChef";
+          }
+          {
+            url = "https://hexed.it/";
+            label = "HexEd.it";
+          }
+        ];
+
+        "browser.search.suggest.enabled" = false;
+        "browser.urlbar.showSearchSuggestionsFirst" = false;
+        "browser.urlbar.suggest.bookmark" = false;
+        "browser.urlbar.suggest.engines" = false;
+        "browser.urlbar.suggest.history" = false;
+        "browser.urlbar.suggest.openpage" = false;
+        "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
+        "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+        "browser.urlbar.suggest.recentsearches" = false;
+        "browser.urlbar.suggest.searches" = false;
+        "browser.urlbar.suggest.topsites" = false;
+        "browser.urlbar.suggest.trending" = false;
+
+        "network.dns.preferIPv6" = true;
+        "dom.security.https_only_mode" = true;
+
+        "media.ffmpeg.enabled" = true;
+        "media.ffmpeg.vaapi.enabled" = true;
+        "media.hardware-video-decoding.enabled" = true;
+        "media.hardware-video-encoding.enabled" = true;
+        # For some reason needed to get more ffmpeg hardware supported formats?
+        # But still not hardware decoders/encoders listed from ffmpeg
+        "media.hardware-video-decoding.force-enabled" = true;
+        "media.hardware-video-encoding.force-enabled" = true;
+
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      };
+      userChrome = ''
+        @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+        /* "Email image" button */
+        #context-sendimage {
+          display: none !important;
+        }
+
+        /* "Set as desktop background" button */
+        #context-setDesktopBackground, #context-sep-sharing {
+          display: none !important;
+        }
+      '';
       # TODO: Search engine icons
       search.engines = {
         google.metaData.alias = "!g";
