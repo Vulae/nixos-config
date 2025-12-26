@@ -35,9 +35,16 @@
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = false;
+    open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # prime = {
+    #   sync.enable = true;
+    #   # pci@0000:10:00.0
+    #   nvidiaBusId = "PCI:10@0:0:0";
+    #   # pci@0000:30:00.0
+    #   amdgpuBusId = "PCI:30@0:0:0";
+    # };
   };
 
   hardware.openrazer.enable = true;
