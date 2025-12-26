@@ -484,6 +484,9 @@ in
       cpu_power = true;
       cpu_temp = true;
 
+      # Only use my main GPU, not integrated graphics.
+      pci_dev = "00000000:10:00.0";
+
       gpu_power = true;
       gpu_temp = true;
       gpu_core_clock = true;
