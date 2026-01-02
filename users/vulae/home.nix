@@ -189,7 +189,7 @@ in
 
         # I have no clue but it makes font more readable.
         "gfx.font_rendering.cleartype_params.force_gdi_classic_for_families" = "";
-        "gfx.font_rendering.cleartype_params.rendering_mode", = 1;
+        "gfx.font_rendering.cleartype_params.rendering_mode" = 1;
         "gfx.font_rendering.directwrite.use_gdi_table_loading" = false;
         "gfx.webrender.all" = true;
 
@@ -205,27 +205,27 @@ in
           {
             url = "https://twitch.tv";
             label = "Twitch";
-          },
+          }
           {
             url = "https://github.com";
             label = "GitHub";
-          },
+          }
           {
             url = "https://reddit.com";
             label = "Reddit";
-          },
+          }
           {
             url = "https://mail.google.com";
             label = "Gmail";
-          },
+          }
           {
             url = "https://google.com";
             label = "Google";
-          },
+          }
           {
             url = "https://wikipedia.org";
             label = "Wikipedia";
-          },
+          }
           {
             url = "https://gchq.github.io/CyberChef/";
             label = "CyberChef";
