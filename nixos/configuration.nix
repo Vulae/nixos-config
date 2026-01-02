@@ -95,6 +95,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "gamemode"
       "openrazer"
       "input" # my-keyboard listens to keyboard inputs to play effects.
     ];
