@@ -19,10 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # aagl = {
+    #   url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     my-keyboard = {
       url = "github:Vulae/my-keyboard";
@@ -35,7 +35,7 @@
     nixpkgs,
     home-manager,
     blender,
-    aagl,
+    # aagl,
     my-keyboard,
     ...
   }: {
@@ -45,7 +45,7 @@
 
         modules = [
           ./nixos/configuration.nix
-          aagl.nixosModules.default
+          # aagl.nixosModules.default
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;

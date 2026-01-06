@@ -218,10 +218,10 @@ in
             url = "https://mail.google.com";
             label = "Gmail";
           }
-          {
-            url = "https://google.com";
-            label = "Google";
-          }
+          # {
+          #   url = "https://google.com";
+          #   label = "Google";
+          # }
           {
             url = "https://wikipedia.org";
             label = "Wikipedia";

@@ -70,6 +70,8 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  services.xserver.excludedPackages = [ pkgs.xterm ];
+
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
@@ -170,6 +172,7 @@
     terminal = "kitty";
   };
 
+  # Gnome file explorer (Nautilus) file previewer.
   services.gnome.sushi.enable = true;
 
   xdg.portal = {
@@ -223,12 +226,12 @@
 
   programs.gamemode.enable = true;
 
-  programs.anime-game-launcher.enable = true;
-  programs.anime-games-launcher.enable = false;
-  programs.honkers-railway-launcher.enable = false;
-  programs.honkers-launcher.enable = false;
-  programs.wavey-launcher.enable = false;
-  programs.sleepy-launcher.enable = true;
+  # programs.anime-game-launcher.enable = true;
+  # programs.anime-games-launcher.enable = false;
+  # programs.honkers-railway-launcher.enable = false;
+  # programs.honkers-launcher.enable = false;
+  # programs.wavey-launcher.enable = false;
+  # programs.sleepy-launcher.enable = true;
   
   # TEMP: Until I get https://github.com/ItsDeltin/Overwatch-Script-To-Workshop to work, this is the stupid workaround.
   # programs.nix-ld = {
