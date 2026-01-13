@@ -19,10 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # aagl = {
-    #   url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    pandora-launcher = {
+      url = "github:Vulae/PandoraLauncher-nix/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     my-keyboard = {
       url = "github:Vulae/my-keyboard";
@@ -35,7 +35,7 @@
     nixpkgs,
     home-manager,
     blender,
-    # aagl,
+    pandora-launcher,
     my-keyboard,
     ...
   }: {
@@ -45,14 +45,13 @@
 
         modules = [
           ./nixos/configuration.nix
-          # aagl.nixosModules.default
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "hm-backup";
               users.vulae = import ./users/vulae/home.nix;
-              extraSpecialArgs = { inherit inputs blender my-keyboard; };
+              extraSpecialArgs = { inherit inputs blender pandora-launcher my-keyboard; };
             };
           }
         ];

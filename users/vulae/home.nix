@@ -4,11 +4,13 @@
   config,
   pkgs,
   blender,
+  pandora-launcher,
   my-keyboard,
   ...
 }:
 let
   blender-pkg = blender.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  pandora-launcher-pkg = pandora-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default;
   my-keyboard-pkg = my-keyboard.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
@@ -71,6 +73,8 @@ in
       nix-init
 
       blender-pkg
+
+      pandora-launcher-pkg
     ];
 
     pointerCursor = {
