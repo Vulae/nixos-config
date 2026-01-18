@@ -38,10 +38,12 @@ in
       # Minecraft
       (prismlauncher.override {
         jdks = [
-          jdk17
-          jdk21
+          jdk17_headless
+          jdk21_headless
+          jdk25_headless
           zulu17
           zulu21
+          zulu25
           graalvmPackages.graalvm-ce
           semeru-bin-17
           semeru-bin # 21
@@ -69,6 +71,7 @@ in
       cargo-info
       rusty-man
       cargo-show-asm
+      cargo-flamegraph
 
       nix-init
 
