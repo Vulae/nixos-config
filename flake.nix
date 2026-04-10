@@ -19,11 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    pandora-launcher = {
-      url = "github:Vulae/PandoraLauncher-nix/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     my-keyboard = {
       url = "github:Vulae/my-keyboard";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +30,6 @@
     nixpkgs,
     home-manager,
     blender,
-    pandora-launcher,
     my-keyboard,
     ...
   }: {
@@ -51,7 +45,7 @@
               useUserPackages = true;
               backupFileExtension = "hm-backup";
               users.vulae = import ./users/vulae/home.nix;
-              extraSpecialArgs = { inherit inputs blender pandora-launcher my-keyboard; };
+              extraSpecialArgs = { inherit inputs blender my-keyboard; };
             };
           }
         ];

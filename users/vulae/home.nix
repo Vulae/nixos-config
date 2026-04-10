@@ -4,13 +4,11 @@
   config,
   pkgs,
   blender,
-  pandora-launcher,
   my-keyboard,
   ...
 }:
 let
   blender-pkg = blender.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  pandora-launcher-pkg = pandora-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default;
   my-keyboard-pkg = my-keyboard.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
@@ -48,6 +46,12 @@ in
           semeru-bin-17
           semeru-bin # 21
         ];
+        additionalLibs = [
+          # For c2me-gpu, Don't know what one I need.
+          opencl-headers
+          ocl-icd
+          khronos-ocl-icd-loader
+        ];
       })
 
       # Steam Proton
@@ -76,8 +80,6 @@ in
       nix-init
 
       blender-pkg
-
-      pandora-launcher-pkg
     ];
 
     pointerCursor = {
@@ -190,6 +192,9 @@ in
         "browser.ml.chat.menu" = false;
         "browser.ml.linkPreview.enabled" = false;
 
+        # Search with google lens button on images.
+        "browser.search.visualSearch.featureGate" = false;
+
         "browser.tabs.groups.enabled" = false;
 
         "extensions.pocket.enabled" = false;
@@ -256,8 +261,14 @@ in
         "browser.urlbar.suggest.topsites" = false;
         "browser.urlbar.suggest.trending" = false;
 
+        # I think firefox already uses cloudflare dns, but just incase so I don't use my ISPs shit dns.
+        "network.connectivity-service.DNS_HTTPS.domain" = "cloudflare-dns.com";
+        "network.connectivity-service.DNSv4.domain" = "cloudflare-dns.com";
+        "network.connectivity-service.DNSv6.domain" = "cloudflare-dns.com";
         "network.dns.preferIPv6" = true;
         "dom.security.https_only_mode" = true;
+        "network.dns.disablePrefetch" = true;
+        
 
         "media.ffmpeg.enabled" = true;
         "media.ffmpeg.vaapi.enabled" = true;

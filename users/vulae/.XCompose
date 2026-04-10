@@ -76,6 +76,23 @@
 <Multi_key> <greater> <equal> : "≥"
 <Multi_key> <i> <n> <f> : "∞"
 <Multi_key> <m> <s> : "μs" # Microsecond
+<Multi_key> <asciicircum> <0> : "⁰"
+<Multi_key> <asciicircum> <1> : "¹"
+<Multi_key> <asciicircum> <2> : "²"
+<Multi_key> <asciicircum> <3> : "³"
+<Multi_key> <asciicircum> <4> : "⁴"
+<Multi_key> <asciicircum> <5> : "⁵"
+<Multi_key> <asciicircum> <6> : "⁶"
+<Multi_key> <asciicircum> <7> : "⁷"
+<Multi_key> <asciicircum> <8> : "⁸"
+<Multi_key> <asciicircum> <9> : "⁹"
+<Multi_key> <asciicircum> <i> : "ⁱ"
+<Multi_key> <asciicircum> <n> : "ⁿ"
+<Multi_key> <asciicircum> <plus> : "⁺"
+<Multi_key> <asciicircum> <minus> : "⁻"
+<Multi_key> <asciicircum> <equal> : "⁼"
+<Multi_key> <asciicircum> <parenright> : "⁽"
+<Multi_key> <asciicircum> <parenleft> : "⁾"
 
 # Emojis
 <Multi_key> <y> <e> <s>                 : "✅"
@@ -152,6 +169,8 @@
 <Multi_key> <r> <o> <s> <e> <e>         : "🥀"
 <Multi_key> <l> <o> <t> <u> <s>         : "🪷"
 <Multi_key> <m> <u> <t> <e>             : "🔇"
+<Multi_key> <i> <n> <f> <l> <a> <t> <e> : "🫪"
+<Multi_key> <s> <h> <y> <2>             : "🫪"
 
 # https://www.kaomoji.co/pages/emoji
 <Multi_key> <F> <0> <0> <0> : "\"(* ^ ω ^)"
