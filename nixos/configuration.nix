@@ -5,16 +5,19 @@
   pkgs,
   ...
 }: {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
+      # Steam discord presence
+      inputs.steam-presence.nixosModules.steam-presence
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelModules = [ "ntsync" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -29,13 +32,16 @@
   };
 
   # Nvidia drivers stuff
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = true;
+    open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     # prime = {
@@ -187,6 +193,7 @@
   programs.git.enable = true;
   programs.zsh.enable = true;
 
+  hardware.steam-hardware.enable = true;
   programs.steam = {
     enable = true;
     # FIXME: For some reason just doesn't fix my issue.
@@ -200,8 +207,18 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     # gamescopeSession.enable = true;
+    extraPackages = with pkgs; [
+      gamescope gamescope-wsi
+      libkrb5 keyutils
+    ];
+    # Discord presence
+    presence = {
+      enable = true;
+      # TODO: Having this stuff here is kinda icky, would probably be better per user but idk how to.
+      steamApiKeyFile = "/home/vulae/.config/steam-presence/STEAM_API_KEY";
+      userIds = [ "76561198115677693" ];
+    };
   };
-  hardware.steam-hardware.enable = true;
 
   # Create tmpfs for steam recordings (I have enough RAM, and don't want to utterly destroy my SSD)
   fileSystems."/home/vulae/.steam_recordings/video" = {

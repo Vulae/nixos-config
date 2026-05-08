@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    steam-presence = {
+      url = "github:JustTemmie/steam-presence";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     my-keyboard = {
       url = "github:Vulae/my-keyboard";
       inputs.nixpkgs.follows = "nixpkgs";

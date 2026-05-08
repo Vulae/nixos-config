@@ -33,6 +33,13 @@ in
 
       vesktop # Discord 
 
+      # Epic games launcher
+      (heroic.override {
+        extraPkgs = pkgs': with pkgs'; [
+          gamemode
+        ];
+      })
+
       # Minecraft
       (prismlauncher.override {
         jdks = [
@@ -344,6 +351,13 @@ in
             template = "https://docs.rs/releases/search?query={searchTerms}";
           }];
           iconMapObj."32" = "https://docs.rs/-/static/favicon.ico";
+        };
+        mdn = {
+          definedAliases = [ "!mdn" ];
+          urls = [{
+            template = "https://developer.mozilla.org/search?q={searchTerms}";
+          }];
+          iconMapObj."16" = "https://developer.mozilla.org/favicon.ico";
         };
         nix-packages = {
           definedAliases = [ "!n" ];
