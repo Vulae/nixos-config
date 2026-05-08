@@ -643,6 +643,11 @@ in
 
   services.easyeffects.enable = true;
 
+  home.file.".local/state/steam-presence/TEMP_FIX".text = ''
+    steam-presence automatically CHDIR to here, which isn't automatically created.
+    This file is here so that it always exists.
+  '';
+
   systemd.user.startServices = "sd-switch";
 
   home.stateVersion = "25.11";
