@@ -31,12 +31,16 @@
     enable = true;
   };
 
-  # Nvidia drivers stuff
+  # GPU driver stuff
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
-  services.xserver.videoDrivers = ["nvidia"];
+  # boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    # "amdgpu"
+  ];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -52,6 +56,7 @@
     #   amdgpuBusId = "PCI:30@0:0:0";
     # };
   };
+
 
   hardware.openrazer.enable = true;
 
@@ -273,6 +278,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 
 }

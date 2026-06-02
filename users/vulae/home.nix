@@ -74,6 +74,8 @@ in
 
       vlc
 
+      obs-studio
+
       # Gnome customization
       gnomeExtensions.hide-top-bar
       gnomeExtensions.blur-my-shell
@@ -131,6 +133,10 @@ in
       };
       "org/gnome/desktop/default-applications/terminal" = {
         exec = "kitty";
+      };
+      "org/gnome/desktop/privacy" = {
+        remember-app-usage = false;
+        remember-recent-files = false;
       };
     };
   };
@@ -509,8 +515,6 @@ in
     };
   };
 
-  programs.obs-studio.enable = true;
-
   # https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord
   home.file.".config/vesktop/themes/CapnKitten.BetterDiscord.Material-Discord.css".text = ''
     @import url("https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/source.css");
@@ -650,5 +654,5 @@ in
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }
