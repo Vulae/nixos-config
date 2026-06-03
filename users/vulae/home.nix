@@ -95,7 +95,7 @@ in
       gtk.enable = true;
       name = "Quintom_Ink";
       package = pkgs.quintom-cursor-theme;
-      size = 28;
+      size = 24;
     };
   };
 
@@ -173,7 +173,7 @@ in
     cursorTheme = {
       name = "Quintom_Ink";
       package = pkgs.quintom-cursor-theme;
-      size = 28;
+      size = 24;
     };
     gtk3.extraConfig = {
       Settings = ''
@@ -411,7 +411,7 @@ in
     };
   };
   # Firefox automatically overrides this file, so we have to just ignore the collision.
-  home.file.".mozilla/firefox/default/search.json.mozlz4".force = lib.mkForce true;
+  home.file.".config/mozilla/firefox/default/search.json.mozlz4".force = lib.mkForce true;
 
   programs.git = {
     enable = true;
