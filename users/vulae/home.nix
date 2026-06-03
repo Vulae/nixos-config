@@ -530,6 +530,7 @@ in
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       userSettings = {
+        "workbench.colorTheme" = "Dark Modern";
         "window.titleBarStyle" = "custom";
         "terminal.integrated.defaultProfile.linux" = "zsh";
         "security.workspace.trust.enabled" = false;
