@@ -222,6 +222,7 @@ in
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = false;
         "browser.newtabpage.pinned" = [
           {
             url = "https://youtube.com";
@@ -306,9 +307,19 @@ in
         #context-setDesktopBackground, #context-sep-sharing {
           display: none !important;
         }
+
+        /* Send to device buttons */
+        #context_sendTabToDevice, #context_sendTabToDeviceSeparator {display: none !important;}
+        #context-sendpagetodevice, #context-sep-sendpagetodevice {display: none !important;}
+        #contentAreaContextMenu #context-sendlinktodevice,
+        #contentAreaContextMenu #context-sep-sendlinktodevice {display: none !important;}
       '';
       # TODO: Search engine icons
       search.engines = {
+        bookmarks.metaData.hidden = true;
+        tabs.metaData.hidden = true;
+        history.metaData.hidden = true;
+        actions.metaData.hidden = true;
         google.metaData.alias = "!g";
         ddg.metaData.hidden = true;
         bing.metaData.hidden = true;
@@ -372,10 +383,17 @@ in
           }];
           iconMapObj."16" = "https://search.nixos.org/favicon.png";
         };
+        nix-options = {
+          definedAliases = [ "!no" ];
+          urls = [{
+            template = "https://search.nixos.org/options?query={searchTerms}";
+          }];
+          iconMapObj."16" = "https://search.nixos.org/favicon.png";
+        };
         nix-home-manager = {
           definedAliases = [ "!nhm" ];
           urls = [{
-            template = "https://home-manager-options.extranix.com/?query={searchTerms}";
+            template = "https://search.nixos.org/options?source=home_manager&query={searchTerms}";
           }];
           iconMapObj."180" = "https://home-manager-options.extranix.com/images/favicon.png";
         };
@@ -385,13 +403,6 @@ in
             template = "https://myanimelist.net/anime.php?q={searchTerms}";
           }];
           iconMapObj."48" = "https://myanimelist.net/favicon.ico";
-        };
-        crunchyroll = {
-          definedAliases = [ "!cr" ];
-          urls = [{
-            template = "https://www.crunchyroll.com/search?q={searchTerms}";
-          }];
-          iconMapObj."16" = "https://www.crunchyroll.com/build/assets/img/favicons/favicon-v2-16x16.png";
         };
         minecraft-wiki = {
           definedAliases = [ "!mw" ];

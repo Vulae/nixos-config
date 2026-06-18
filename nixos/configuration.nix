@@ -211,7 +211,6 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
-    # gamescopeSession.enable = true;
     extraPackages = with pkgs; [
       gamescope gamescope-wsi
       libkrb5 keyutils
@@ -224,6 +223,12 @@
       userIds = [ "76561198115677693" ];
     };
   };
+  # TODO: I can never get gamescope to work with steam.
+  # Like running it outside of steam it works fine, but running it with a game in steam immediately crashes and IDK why.
+  # programs.gamescope = {
+  #   enable = true;
+  #   capSysNice = true;
+  # };
 
   # Create tmpfs for steam recordings (I have enough RAM, and don't want to utterly destroy my SSD)
   fileSystems."/home/vulae/.steam_recordings/video" = {
