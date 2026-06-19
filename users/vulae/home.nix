@@ -150,13 +150,14 @@ in
       After = ["graphical-session.target"];
     };
     Service = {
-      ExecStart = "${lib.getExe my-keyboard-pkg}";
+      ExecStart = "${lib.getExe my-keyboard-pkg} --path ${config.home.homeDirectory}/.config/my-keyboard";
       Restart = "on-failure";
     };
     Install = {
       WantedBy = ["graphical-session.target"];
     };
   };
+  home.file.".config/my-keyboard/".source = ./my-keyboard;
 
   # home.file.".config/autostart/wallpaper.sh".source = ./wallpaper.sh;
 
