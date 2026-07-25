@@ -132,11 +132,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781983954,
-        "narHash": "sha256-xuskNAhgqy7tKqMkMcxnmYAbN3RmAj3mG0dH3SDtT1s=",
+        "lastModified": 1783782645,
+        "narHash": "sha256-/6EeFpJnxSIVsdl0LOfjHMWU58nVza47stG7KXAQXsk=",
         "owner": "Vulae",
         "repo": "my-keyboard",
-        "rev": "e4addd25f23cd3398d59a28a0b877d5023ed2e28",
+        "rev": "c7a26d5c5b4e86f95b240e0c1cb9dac279aac46b",
         "type": "github"
       },
       "original": {

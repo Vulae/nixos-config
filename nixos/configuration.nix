@@ -19,7 +19,18 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "ntsync" ];
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  # boot.supportedFilesystems = [ "ntfs" ];
+  fileSystems."/mnt/WDC_2TB" = {
+    device = "/dev/disk/by-uuid/abd65a5f-c0c3-40de-ac91-56975e12bea7";
+    fsType = "ext4";
+    options = [ "nofail" "x-systemd.automount" ];
+  };
+  fileSystems."/mnt/tmpfs" = {
+    device = "tmpfs";
+    fsType = "tmpfs";
+    # I have 32GiB of memory, 28GiB for tmpfs is fine when we have zram & swap
+    options = [ "size=28G" ];
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
 

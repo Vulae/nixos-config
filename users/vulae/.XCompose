@@ -74,7 +74,7 @@
 <Multi_key> <asciitilde> <asciitilde> : "≈"
 <Multi_key> <less> <equal> : "≤"
 <Multi_key> <greater> <equal> : "≥"
-<Multi_key> <i> <n> <f> : "∞"
+<Multi_key> <i> <n> <f> <i> <n> <i> <t> <e> : "∞"
 <Multi_key> <m> <s> : "μs" # Microsecond
 <Multi_key> <asciicircum> <0> : "⁰"
 <Multi_key> <asciicircum> <1> : "¹"
